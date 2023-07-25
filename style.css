@@ -23,17 +23,31 @@ nav ul{
 nav li{
     margin-right: 40px;
 }
+nav li a{
+    transition: all .17s ease-in-out;
+}
+nav li a:hover{
+color: var(--second-color);
+}
 .btn-branding {
     background-color: var(--second-color);
     border-radius: 8px;
     padding: 5px 30px;
     line-height: 30px;
-}
+    transition: all .17s ease-in-out;
 
+}
+.btn-branding:hover{
+    background-color: #8d9f0b;
+}
 .btn-branding,
 nav a {
     color: white;
     text-decoration: none;
     font-family: var(--normal-font);
     font-size: 14px;
+}
+
+.active{
+    border-bottom: 1px solid var(--second-color);
 }
