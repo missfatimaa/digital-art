@@ -81,6 +81,7 @@ nav a {
 
 .hero-left {
     padding-top: 60px;
+    margin-bottom: 60px;
 }
 
 .hero-right {
@@ -148,19 +149,57 @@ nav a {
     color: var(--first-color);
     text-decoration: none;
     font-size: 15px;
+    transition: all .17s ease-in-out;
+
 }
 
 .btns :first-child {
     background-color: var(--second-color);
     padding: 10px 25px 14px 25px;
     border-radius: 8px;
-    transition: all .17s ease-in-out;
     margin-right: 25px;
 }
 
 .btns :hover:first-child {
     background-color: #8d9f0b;
 }
+
+.btns :hover:last-child {
+    color: var(--second-color);
+}
+
+.count {
+    margin-top: 60px;
+    display: flex;
+    gap: 90px;
+}
+
+.count div:nth-child(2),
+.count div:nth-child(3) {
+    border-left: 1px solid var(--second-color);
+    padding-left: 20px;
+}
+
+.amount span:nth-of-type(1) {
+    font-size: 40px;
+    color: var(--second-color);
+    font-family: var(--heading-font);
+}
+
+.amount span:nth-of-type(2) {
+    font-size: 40px;
+    font-family: var(--heading-font);
+    color: var(--first-color);
+}
+
+.amount span:nth-of-type(3) {
+    font-family: var(--normal-font);
+    color: var(--first-color);
+    font-size: 12px;
+}
+
+
+
 
 @media (max-width: 600px) {
     nav {
@@ -179,43 +218,66 @@ nav a {
 
     .hero-left {
         padding-top: 10px;
-        transform: translateX(20px);
+        text-align: center;
+        margin-bottom: 70px;
+
     }
 
     .hero-left h1 {
-        font-size: 20px;
+        font-size: 35px;
     }
 
     .hero-left p {
-        width: 180px;
-        font-size: 8px;
+        width: 280px;
+        margin: 0 auto;
+        font-size: 12px;
     }
 
     .btns :first-child {
-        padding: 8px 10px;
+        padding: 8px 15px;
         margin-right: 5px;
     }
 
     .hero-left a {
-        font-size: 10px;
+        font-size: 14px;
+    }
+
+    .hero-right {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 50px;
     }
 
     .hero-right img {
-        width: 150px;
-        height: 210px;
+        width: 250px;
+        height: 300px;
     }
 
     .first-box {
-        width: 120px;
-        height: 70px;
-        transform: translate(0,0);
+        width: 220px;
+        height: 100px;
+        transform: translate(0, 0);
+        font-size: 15px;
+    }
+
+    .first-box p {
+        margin: 15px 10px 15px 10px;
+    }
+
+    .first-box a {
         font-size: 10px;
+        padding: 10px 60px;
     }
-    .first-box p{
-        margin: 10px 10px 15px 10px;
+
+    .count div:nth-child(2),
+    .count div:nth-child(3) {
+        padding-left: 10px;
     }
-    .first-box a{
-        font-size: 10px;
-        padding: 5px 20px;
+
+    .count {
+        gap: 40px;
+        justify-content: center;
     }
+
 }
