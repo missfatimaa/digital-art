@@ -396,16 +396,40 @@ input[type=email] {
     border: none;
     font-size: 12px;
     font-family: var(--normal-font);
-    padding: 13px ;
+    padding: 13px;
     outline: none;
     color: #fff;
     width: 45%;
 }
 
-.box-shadow{
-    transition: all .3s ease-in-out;
+.box-shadow {
+    transition: all .15s ease-in-out;
     box-shadow: 0px 0px 5px var(--second-color);
 }
+
+.warning-shadow {
+    animation: Warning 2s ease-in-out infinite;
+}
+
+@keyframes Warning {
+    0% {
+        box-shadow: 0px 0px 10px red;
+    }
+
+    50% {
+        box-shadow: 0px 0px 20px red;
+    }
+
+    70% {
+        box-shadow: 0px 0px 10px red;
+
+    }
+    100% {
+        box-shadow: 0px 0px 20px red;
+    }
+}
+
+
 @media (max-width: 600px) {
     nav {
         padding-left: 0;

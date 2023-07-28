@@ -5,6 +5,8 @@ let camp = $.querySelector("#camp")
 let email = $.querySelector("#Email")
 let subscribe = $.querySelector("#subBtn")
 let emailSec = $.querySelector(".email-input")
+
+
 morfyGif.addEventListener('mouseenter', function () {
     morfyGif.src = "/images/morphy3.webp"
 })
@@ -31,20 +33,22 @@ email.addEventListener("focus", function () {
 })
 email.addEventListener("focusout", function () {
     emailSec.classList.remove("box-shadow")
+    emailSec.classList.remove("warning-shadow")
+
 })
 
 subscribe.addEventListener("click", function (event) {
     event.preventDefault()
     console.log(email.value);
-    Email.send({
-        Host: "smtp.gmail.com",
-        Username: "<sender’s email address>",
-        Password: "<email password>",
-        To: '<recipient’s email address>',
-        From: "<sender’s email address>",
-        Subject: "<email subject>",
-        Body: "<email body>",
-    }).then(
-        message => alert("mail sent successfully")
-    );
+    if (email.value === '') {
+        email.placeholder = "Please Enter Email First !!"
+        emailSec.classList.add("warning-shadow")
+        email.addEventListener("focus", function () {
+            emailSec.classList.remove("warning-shadow")
+        })
+    }
+    else {
+        alert(`Dear ${email.value},\rGlad to have you here 🥰🔥`)
+        email.value=""
+    }
 })
