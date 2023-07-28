@@ -290,11 +290,12 @@ nav a {
     background-color: var(--second-color);
     color: var(--boxes-color);
 }
+
 /* third layer */
 
 .third-layer {
     align-items: center;
-    padding: 50px 0 80px 0; 
+    padding: 50px 0 80px 0;
 }
 
 .third-layer-left h1 {
@@ -323,6 +324,19 @@ nav a {
     width: 100%;
     height: auto;
 }
+
+/* fourth layer */
+
+.actors-images img {
+    border-radius: 15px;
+}
+.actors-images{
+    justify-content: center;
+}
+.first-row{
+    margin-bottom: 4%;
+}
+
 
 @media (max-width: 600px) {
     nav {
@@ -414,5 +428,10 @@ nav a {
         margin-right: 0;
         margin-left: 10PX;
     }
-
+    .actors-images{
+        align-items: center;
+    }
+    /* .first-row{
+        margin-bottom: 0;
+    } */
 }
