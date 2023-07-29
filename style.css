@@ -424,10 +424,71 @@ input[type=email] {
         box-shadow: 0px 0px 10px red;
 
     }
+
     100% {
         box-shadow: 0px 0px 20px red;
     }
 }
+
+footer {
+    font-family: var(--normal-font);
+    color: var(--first-color);
+}
+
+.contact p {
+    width: 230px;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    color: #fefef1d7;
+}
+
+.icons {
+    display: flex;
+    gap: 8px;
+}
+
+.icons i {
+    text-decoration: none;
+    padding: 3px;
+    font-size: 13px;
+    background-color: var(--first-color);
+    color: #090F1D;
+    border-radius: 2px;
+    transition: all .15s ease-in-out;
+}
+
+.icons i:hover {
+    background-color: var(--second-color);
+}
+
+.git i {
+    background-color: var(--second-color);
+}
+
+.git i:hover {
+    background-color: var(--first-color);
+}
+
+.footer-cols {
+    
+}
+.footer-cols ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.footer-cols a {
+    text-decoration: none;
+    color: var(--first-color);
+    font-size: 13px;
+    color: #fefef1d7;
+    transition: all .17s ease-in-out;
+}
+
+.footer-cols a:hover {
+    color: var(--second-color);
+}
+
 
 
 @media (max-width: 600px) {
@@ -542,7 +603,7 @@ input[type=email] {
     }
 
     .email-input {
-        padding: 10px 5px;
+        padding: 8px 5px 12px 5px;
     }
 
     .email-input a {
