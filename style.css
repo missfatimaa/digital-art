@@ -477,6 +477,11 @@ footer {
     padding-left: 0;
 }
 
+.footer-right {
+    display: flex;
+    gap: 1rem;
+}
+
 .footer-right a {
     text-decoration: none;
     color: var(--first-color);
@@ -495,6 +500,7 @@ footer {
 }
 
 .footer-cols {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #fefef1d7;
@@ -503,6 +509,10 @@ footer {
 footer .source {
     font-size: 12px;
     color: #fefef1d7;
+}
+
+footer .source a {
+    color: var(--second-color);
 }
 
 
@@ -626,5 +636,41 @@ footer .source {
         font-size: 11px;
         margin-left: 0px;
 
+    }
+
+    .contact i {
+        font-size: 12px;
+    }
+
+    .contact p {
+        font-size: 10px;
+        width: 200px;
+    }
+
+    .footer-right h6 {
+        font-size: 12px;
+    }
+
+    .footer-right a {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 379px) {
+    .contact i {
+        font-size: 10px;
+    }
+
+    .contact p {
+        font-size: 9px;
+        width: 180px;
+    }
+
+    .footer-right h6 {
+        font-size: 10px;
+    }
+
+    .footer-right a {
+        font-size: 8px;
     }
 }
