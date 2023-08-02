@@ -584,13 +584,13 @@ footer .source a {
 .slider {
     margin: 0 auto;
     width: 60%;
-    height: 70vh;
+    height: 70%;
     display: flex;
     position: relative;
     z-index: 3;
-    box-shadow: 0 0 0px 25px rgb(65, 65, 65);
+    box-shadow: 0 0 20px 15px var(--second-color);
     border-radius: 10px;
-    outline: 10px solid rgb(100, 100, 100);
+    outline: 5px solid var(--boxes-color);
     overflow: hidden;
 }
 
@@ -606,7 +606,6 @@ footer .source a {
     display: none;
     animation: fade 230ms;
     display: block;
-
 }
 
 .prev,
