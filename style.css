@@ -144,13 +144,21 @@ nav a {
     color: var(--box-color);
 }
 
-.hero-left h1 {
+.hero-left h1,
+.actorsPageTitle {
     font-size: 50px;
     color: var(--first-color);
     font-family: var(--heading-font);
 }
 
-.hero-left h1 span {
+.actorsPageTitle {
+    font-size: 40px;
+    text-shadow: 8px 5px 8px var(--second-color);
+    text-align: center;
+}
+
+.hero-left h1 span,
+.actorsPageTitle span {
     color: var(--second-color);
 }
 
@@ -563,7 +571,6 @@ footer .source a {
     transform: scaleX(0);
 }
 
-/* | */
 .far {
     transform: translateX(100px);
 }
@@ -571,6 +578,83 @@ footer .source a {
 .fas {
     transform: translateX(-160px);
 }
+
+/* | */
+/* /////////////actors.html */
+.slider {
+    margin: 0 auto;
+    width: 60%;
+    height: 70vh;
+    display: flex;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 0 0px 25px rgb(65, 65, 65);
+    border-radius: 10px;
+    outline: 10px solid rgb(100, 100, 100);
+    overflow: hidden;
+}
+
+.slider-item,
+.slider-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: none;
+}
+
+.slider-item {
+    display: none;
+    animation: fade 230ms;
+    display: block;
+
+}
+
+.prev,
+.next {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 50px;
+    background-color: transparent;
+    font-size: 23px;
+    color: rgba(255, 255, 255, 0.5);
+    border: none;
+    outline: none;
+    transition: all 230ms ease;
+    cursor: pointer;
+}
+
+.prev:hover {
+    background-color: rgba(255, 255, 255, 0.150);
+}
+
+.next:hover {
+    background-color: rgba(255, 255, 255, 0.150);
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        transform: scale(1.5, 1.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
 
 @media (max-width: 600px) {
 
@@ -712,6 +796,16 @@ footer .source a {
 
     footer .source {
         font-size: 10px;
+    }
+
+    /* /// */
+    .actorsPageTitle {
+        font-size: 20px;
+    }
+
+    .slider {
+        height: 25vh;
+
     }
 }
 

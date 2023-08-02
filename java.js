@@ -87,8 +87,3 @@ brightnessBox.addEventListener("mouseleave", function () {
     zero.style.transform = "translateX(100px)"
     hundred.style.transform = "translateX(-160px)"
 })
-//
-
-
-
-
