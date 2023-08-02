@@ -6,7 +6,6 @@ let email = $.querySelector("#Email")
 let subscribe = $.querySelector("#subBtn")
 let emailSec = $.querySelector(".email-input")
 
-
 morfyGif.addEventListener('mouseenter', function () {
     morfyGif.src = "/images/morphy3.webp"
 })
@@ -49,6 +48,47 @@ subscribe.addEventListener("click", function (event) {
     }
     else {
         alert(`Dear ${email.value},\rGlad to have you here 🥰🔥`)
-        email.value=""
+        email.value = ""
     }
 })
+
+// rangeSliderPart
+let rangeItem = $.getElementById("range")
+rangeItem.addEventListener("change", changeHandler)
+let zero = $.querySelector(".far")
+let hundred = $.querySelector(".fas")
+let brightnessFilter = $.querySelector(".brightnessFilter")
+let brightnessBox = $.querySelector(".brightness-box")
+
+function changeHandler(event) {
+    brightnessFilter.style.filter = "brightness(" + event.target.value + "%)"
+}
+zero.addEventListener("click", zeroHandler)
+hundred.addEventListener("click", hundredHandler)
+
+function zeroHandler() {
+    brightnessFilter.style.filter = "brightness(30%)"
+}
+function hundredHandler() {
+    brightnessFilter.style.filter = "brightness(100%)"
+
+}
+rangeItem.classList.add("unscaled")
+
+brightnessBox.addEventListener("mouseenter", function () {
+    rangeItem.classList.remove("unscaled")
+    rangeItem.classList.add("scaled")
+    zero.style.transform = "translateX(0)"
+    hundred.style.transform = "translateX(0)"
+})
+brightnessBox.addEventListener("mouseleave", function () {
+    rangeItem.classList.remove("scaled")
+    rangeItem.classList.add("unscaled")
+    zero.style.transform = "translateX(100px)"
+    hundred.style.transform = "translateX(-160px)"
+})
+//
+
+
+
+
