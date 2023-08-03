@@ -603,7 +603,6 @@ footer .source a {
 }
 
 .slider-item {
-    animation: fade 230ms;
     display: block;
     position: relative;
 }
@@ -667,7 +666,9 @@ footer .source a {
     }
 }
 
-
+.actorsLandpage {
+    margin-top: 100px;
+}
 
 
 @media (max-width: 600px) {
@@ -818,13 +819,12 @@ footer .source a {
     }
 
     .slider {
-        height: 13rem;
-
+        height: 10rem;
     }
 
     .txt p {
-        margin-top: .5rem;
-        font-size: 14px;
+        margin-top: .3rem;
+        font-size: 10px;
     }
 }
 
