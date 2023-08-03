@@ -87,7 +87,7 @@ nav a {
 }
 
 .hero {
-    margin-top: 120px;
+    margin-top: 90px;
 }
 
 .hero-left {
@@ -225,6 +225,13 @@ nav a {
 }
 
 /* second layer */
+.first-page-m,
+.second-page-m,
+.third-page-m,
+.fourth-page-m {
+    margin-bottom: 12%;
+}
+
 .second-layer h1 {
     font-family: var(--heading-font);
     font-size: 35px;
@@ -667,7 +674,38 @@ footer .source a {
 }
 
 .actorsLandpage {
-    margin: 100px 0 170px 0;
+    margin: 100px 0;
+}
+
+.actors-info {
+    gap: 20px;
+}
+
+.actors-info h4 {
+    color: var(--first-color);
+    font-family: var(--heading-font);
+}
+
+.actors-info span {
+    color: var(--second-color);
+}
+
+.actors-info p {
+    margin-bottom: 0;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 1.5;
+    text-justify: inter-word;
+    font-family: var(--normal-font);
+    color: var(--first-color);
+}
+.actors-info a{
+    color: var(--second-color);
+    font-family: var(--normal-font);
+    font-size: 13px;
+}
+.actors-infos {
+    margin-bottom: 80px;
 }
 
 
@@ -823,8 +861,31 @@ footer .source a {
     }
 
     .txt p {
+        font-family: var(--normal-font);
         margin-top: .2rem;
         font-size: 12px;
+    }
+
+    .first-page-m,
+    .second-page-m,
+    .third-page-m,
+    .fourth-page-m {
+        margin-bottom: 22%;
+    }
+    .actors-info h4 {
+        font-size: 16px;
+    }
+    .actors-info p{
+        font-size: 11px;
+    }
+    .actors-info a{
+        font-size: 10px;
+    }
+    .actors-infos{
+        margin-bottom: 0;
+    }
+    .actorsLandpage{
+        margin-bottom: 70px;
     }
 }
 
