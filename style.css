@@ -708,7 +708,17 @@ footer .source a {
     margin-bottom: 80px;
 }
 
-
+@media (max-width: 995px) {
+    .slider {
+        height: 15rem;
+    }
+    
+    .txt p {
+        font-family: var(--normal-font);
+        margin-top: .5rem;
+        font-size: 14px;
+    }
+}
 @media (max-width: 600px) {
 
     nav {
