@@ -3,7 +3,6 @@
     --heading-font: 'Limelight', cursive;
     --first-color: #fff;
     --second-color: #D6EF0E;
-    --box-color: #b2560d;
     --boxes-color: #131E3A;
 }
 
@@ -31,7 +30,7 @@ nav ul {
 }
 
 nav li {
-    margin-right: 50px;
+    margin-right: 35px;
 }
 
 nav li a {
@@ -70,7 +69,8 @@ nav li a:hover {
 }
 
 .btn-branding:hover {
-    background-color: #8d9f0b;
+    background-color: var(--first-color);
+    color: var(--second-color);
 }
 
 .btn-branding,
@@ -110,8 +110,7 @@ nav a {
 
 .first-box {
     position: absolute;
-    background-color: var(--box-color);
-    /* transform: translate(20px, -78px); */
+    background-color:var(--boxes-color);
     width: 220px;
     height: 120px;
     border-radius: 16px;
@@ -186,7 +185,8 @@ nav a {
 }
 
 .btns :hover:first-child {
-    background-color: #8d9f0b;
+    background-color: var(--first-color);
+    color: var(--second-color);
 }
 
 .btns :hover:last-child {
@@ -361,7 +361,7 @@ nav a {
 /* fifth layer */
 
 .fifth-layer {
-    padding: 13% 0 15% 0;
+    padding: 8% 0 13% 0;
 }
 
 .fifth-layer-left {
@@ -699,26 +699,72 @@ footer .source a {
     font-family: var(--normal-font);
     color: var(--first-color);
 }
-.actors-info a{
+
+.actors-info a {
     color: var(--second-color);
     font-family: var(--normal-font);
     font-size: 13px;
 }
+
 .actors-infos {
     margin-bottom: 80px;
 }
+
+/* ////////themes colors */
+.themes {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.themes button:hover{
+transform: scale(1.1);
+}
+.themes button {
+    transition: all .1s ease-in-out;
+    height: 25px;
+    width: 25px;
+    border: 2px solid #dddddd;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btn1 {
+    background-color: #3498db;
+}
+
+.btn2 {
+    background-color: #ff1756;
+}
+
+.btn3 {
+    background-color: #1cb65d;
+}
+
+.btn4 {
+    background-color: #8e44ad;
+}
+
+.btn5 {
+    background-color: #D6EF0E;
+}
+
+
+
 
 @media (max-width: 995px) {
     .slider {
         height: 15rem;
     }
-    
+
     .txt p {
         font-family: var(--normal-font);
         margin-top: .5rem;
         font-size: 14px;
     }
 }
+
 @media (max-width: 600px) {
 
     nav {
@@ -882,19 +928,24 @@ footer .source a {
     .fourth-page-m {
         margin-bottom: 22%;
     }
+
     .actors-info h4 {
         font-size: 16px;
     }
-    .actors-info p{
+
+    .actors-info p {
         font-size: 11px;
     }
-    .actors-info a{
+
+    .actors-info a {
         font-size: 10px;
     }
-    .actors-infos{
+
+    .actors-infos {
         margin-bottom: 0;
     }
-    .actorsLandpage{
+
+    .actorsLandpage {
         margin-bottom: 70px;
     }
 }

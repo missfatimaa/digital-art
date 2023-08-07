@@ -66,3 +66,12 @@ brightnessBox.addEventListener("mouseleave", function () {
     zero.style.transform = "translateX(100px)"
     hundred.style.transform = "translateX(-160px)"
 })
+// themes color
+let themesBtn = $.querySelectorAll(".themes-btn")
+
+themesBtn.forEach(function (item) {
+    item.addEventListener('click', function (event) {
+        let res = event.target.dataset.color
+        $.documentElement.style.setProperty("--second-color", res)
+    })
+})
