@@ -9,7 +9,7 @@ let popupBox = $.querySelector(".popup-box")
 let popupClose = $.querySelector(".popup-close")
 
 
-window.addEventListener("load", function () {
+window.addEventListener("DOMContentLoaded", function () {
     $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
     brightnessFilter.style.filter="blur(10px)"
     popupBox.style.display="block"

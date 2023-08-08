@@ -9,7 +9,7 @@ let actorsNameArray = ['Robert Downey Jr.', 'Sandra Bullock', 'Brad Pitt', 'Cate
 let actorsName = $.querySelector(".txt p")
 
 
-window.addEventListener("load", function () {
+window.addEventListener("DOMContentLoaded", function () {
     $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
 })
 function prevImage() {
