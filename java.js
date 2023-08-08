@@ -5,6 +5,15 @@ let camp = $.querySelector("#camp")
 let email = $.querySelector("#Email")
 let subscribe = $.querySelector("#subBtn")
 let emailSec = $.querySelector(".email-input")
+let popupBox = $.querySelector(".popup-box")
+let popupClose = $.querySelector(".popup-close")
+
+
+window.addEventListener("load", function () {
+    $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
+    brightnessFilter.style.filter="blur(10px)"
+    popupBox.style.display="block"
+})
 
 morfyGif.addEventListener('mouseenter', function () {
     morfyGif.src = "/images/morphy3.webp"
@@ -55,8 +64,8 @@ subscribe.addEventListener("click", function (event) {
 // rangeSliderPart
 let rangeItem = $.getElementById("range")
 rangeItem.addEventListener("change", changeHandler)
-let zero = $.querySelector(".far")
-let hundred = $.querySelector(".fas")
+let zero = $.querySelector(".dark")
+let hundred = $.querySelector(".light")
 let brightnessFilter = $.querySelector(".brightnessFilter")
 let brightnessBox = $.querySelector(".brightness-box")
 
@@ -94,6 +103,16 @@ let themesBtn = $.querySelectorAll(".themes-btn")
 themesBtn.forEach(function (item) {
     item.addEventListener('click', function (event) {
         let res = event.target.dataset.color
-        $.documentElement.style.setProperty("--second-color", res)
+        localStorage.setItem("color",res)
+        $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
     })
+})
+
+//////popup themes
+
+popupClose.addEventListener("click", function (event) {
+    event.preventDefault()
+    popupBox.style.display="none"
+    brightnessFilter.style.filter="blur(0)"
+
 })

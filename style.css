@@ -110,7 +110,7 @@ nav a {
 
 .first-box {
     position: absolute;
-    background-color:var(--boxes-color);
+    background-color: var(--boxes-color);
     width: 220px;
     height: 120px;
     border-radius: 16px;
@@ -717,9 +717,11 @@ footer .source a {
     justify-content: center;
     gap: 10px;
 }
-.themes button:hover{
-transform: scale(1.1);
+
+.themes button:hover {
+    transform: scale(1.1);
 }
+
 .themes button {
     transition: all .1s ease-in-out;
     height: 25px;
@@ -750,8 +752,66 @@ transform: scale(1.1);
     background-color: #D6EF0E;
 }
 
+/* ////popup themes */
+.popup-box {
+    background-color: var(--boxes-color);
+    width: 60%;
+    height: 60%;
+    position: fixed;
+    z-index: 999;
+    left: 20%;
+    top: 20%;
+    text-align: center;
+    font-family: var(--normal-font);
+    color: var(--second-color);
+    border-radius: 40px;
+    animation: Popup 1s ease-in-out;
+    display: block;
+}
+
+.popup-themes .themes button {
+    height: 30px;
+    width: 30px;
+}
+
+.popup-themes {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.popup-close {
+    position: absolute;
+    right: 50px;
+    top: 30px;
+}
+
+.popup-close a {
+    color: var(--second-color);
+    font-size: 35px;
+    transition: all .1s ease-in-out;
+}
+
+.popup-close a:hover {
+    color: var(--first-color);
+}
 
 
+@keyframes Popup {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 @media (max-width: 995px) {
     .slider {
@@ -763,6 +823,45 @@ transform: scale(1.1);
         margin-top: .5rem;
         font-size: 14px;
     }
+}
+
+@media (max-width: 840px) {
+    .popup-themes h3 {
+        font-size: 22px;
+    }
+
+    .popup-themes p {
+        font-size: 12px;
+    }
+    .popup-box {
+        width: 70%;
+        height: 45%;
+        left: 15%;
+    }
+}
+
+@media (max-width: 700px) {
+    .popup-themes h3 {
+        font-size: 17px;
+    }
+
+    .popup-themes p {
+        font-size: 12px;
+    }
+
+    .popup-box {
+        height: 40%;
+    }
+
+    .popup-close a {
+        font-size: 30px;
+    }
+
+    .popup-close {
+        right: 30px;
+        top: 20px;
+    }
+
 }
 
 @media (max-width: 600px) {
@@ -948,9 +1047,47 @@ transform: scale(1.1);
     .actorsLandpage {
         margin-bottom: 70px;
     }
+
+    /* /////popup */
+    .popup-themes {
+        gap: 0;
+    }
+
+    .popup-themes h3 {
+        font-size: 13px;
+    }
+
+    .popup-themes p {
+        font-size: 12px;
+        width: 200px;
+        margin: 0 auto;
+    }
+
+    .popup-box {
+        height: 28%;
+        width: 80%;
+        left: 10%;
+    }
+
+    .popup-close a {
+        font-size: 30px;
+    }
+
+    .popup-close {
+        right: 25px;
+        top: 15px;
+    }
 }
 
 @media (max-width: 400px) {
+    /* ///thems popup */
+
+    .popup-close a {
+        font-size: 25px;
+    }
+    .popup-close{
+        top:7px;
+    }
 
     .second-layer-title a {
         font-size: 12px;

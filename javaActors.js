@@ -8,6 +8,10 @@ let imgIndex = 0
 let actorsNameArray = ['Robert Downey Jr.', 'Sandra Bullock', 'Brad Pitt', 'Cate Blanchett', 'Keanu Reeves', 'Anne Hathaway', 'Benedict Cumberbatch','Golshifteh Farahani']
 let actorsName = $.querySelector(".txt p")
 
+
+window.addEventListener("load", function () {
+    $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
+})
 function prevImage() {
     imgIndex--
     if (imgIndex < 0) {
@@ -72,6 +76,7 @@ let themesBtn = $.querySelectorAll(".themes-btn")
 themesBtn.forEach(function (item) {
     item.addEventListener('click', function (event) {
         let res = event.target.dataset.color
-        $.documentElement.style.setProperty("--second-color", res)
+        localStorage.setItem("color",res)
+        $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
     })
 })
