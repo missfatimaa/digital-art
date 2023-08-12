@@ -8,13 +8,11 @@ let emailSec = $.querySelector(".email-input")
 let popupBox = $.querySelector(".popup-box")
 let popupClose = $.querySelector(".popup-close")
 
-
 window.addEventListener("DOMContentLoaded", function () {
     $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
     brightnessFilter.style.filter="blur(10px)"
     popupBox.style.display="block"
 })
-
 morfyGif.addEventListener('mouseenter', function () {
     morfyGif.src = "/images/morphy3.webp"
 })
@@ -105,6 +103,8 @@ themesBtn.forEach(function (item) {
         let res = event.target.dataset.color
         localStorage.setItem("color",res)
         $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
+        popupBox.style.display="none"
+        brightnessFilter.style.filter="blur(0)"
     })
 })
 
@@ -114,5 +114,4 @@ popupClose.addEventListener("click", function (event) {
     event.preventDefault()
     popupBox.style.display="none"
     brightnessFilter.style.filter="blur(0)"
-
 })
