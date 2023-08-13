@@ -5,7 +5,13 @@ let zero = $.querySelector(".dark")
 let hundred = $.querySelector(".light")
 let brightnessFilter = $.querySelector(".brightnessFilter")
 let brightnessBox = $.querySelector(".brightness-box")
+let video = $.querySelector("#video")
+let playerIcon = $.querySelector(".video-icon")
 
+window.addEventListener("DOMContentLoaded", function () {
+    $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
+    video.play()
+})
 function changeHandler(event) {
     brightnessFilter.style.filter = "brightness(" + event.target.value + "%)"
 }
@@ -33,3 +39,20 @@ brightnessBox.addEventListener("mouseleave", function () {
     zero.style.transform = "translateX(100px)"
     hundred.style.transform = "translateX(-160px)"
 })
+
+/////////////////video
+playerIcon.addEventListener("click", function (event) {
+    event.preventDefault()
+    if (playerIcon.id === "play-icon") {
+        playerIcon.classList.remove("fa-play-circle")
+        playerIcon.classList.add("fa-pause-circle")
+        playerIcon.id = "pause-icon"
+        video.play()
+    } else if (playerIcon.id === "pause-icon") {
+        playerIcon.classList.remove("fa-pause-circle")
+        playerIcon.classList.add("fa-play-circle")
+        playerIcon.id = "play-icon"
+        video.pause()
+    }
+})
+
