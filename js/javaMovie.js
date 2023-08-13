@@ -7,10 +7,14 @@ let brightnessFilter = $.querySelector(".brightnessFilter")
 let brightnessBox = $.querySelector(".brightness-box")
 let video = $.querySelector("#video")
 let playerIcon = $.querySelector(".video-icon")
+let volumeUp = $.querySelector(".volume-up i")
+let mute = $.querySelector(".mute i")
+
 
 window.addEventListener("DOMContentLoaded", function () {
     $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
     video.play()
+    video.muted = true;
 })
 function changeHandler(event) {
     brightnessFilter.style.filter = "brightness(" + event.target.value + "%)"
@@ -55,4 +59,20 @@ playerIcon.addEventListener("click", function (event) {
         video.pause()
     }
 })
-
+///////////////////////video volume
+volumeUp.addEventListener("click", function (event) {
+    event.preventDefault()
+    video.muted = false;
+    volumeUp.classList.remove("volume-inactive")
+    volumeUp.classList.add("volume-active")
+    mute.classList.remove("volume-active")
+    mute.classList.add("volume-inactive")
+})
+mute.addEventListener("click", function (event) {
+    event.preventDefault()
+    video.muted = true;
+    volumeUp.classList.remove("volume-active")
+    volumeUp.classList.add("volume-inactive")
+    mute.classList.remove("volume-inactive")
+    mute.classList.add("volume-active")
+})

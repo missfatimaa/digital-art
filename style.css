@@ -814,37 +814,86 @@ footer .source a {
 }
 
 /* //////////// movies page*/
-.video video {
+.moviePage-nav {
+    background-color: transparent;
+}
+.tv-frame{
+    position: relative;
+    margin-top: 5rem;
+    text-align: center;
+}
+.tv-frame img{
+    width: 85%;
+
+}
+
+.video-player {
+    position: absolute;
     width: 100%;
-    height: 100%;
+    top: 2%;
+    left: 0;
+}
+
+.video video {
+    width: 80%;
 }
 
 .video {
+    text-align: center;
     position: relative;
-    width: 100%;
-    height: 90vh;
 }
 
 .play-icon {
     position: absolute;
-    top: 46%;
+    top: 82%;
     left: 48%;
 }
 
 .play-icon i {
     color: #ffffff90;
-    font-size: 50px;
+    font-size: 45px;
     transition: all .2s ease-in-out;
 }
-.play-icon i:hover{
+
+.play-icon i:hover {
     color: var(--second-color);
     transform: scale(1.1);
 }
 
-.moviePage-nav {
-    background-color: transparent;
+.mute {
+    position: absolute;
+    top: 84%;
+    left: 44%;
 }
 
+.mute i,
+.volume-up i {
+    font-size: 20px;
+    transition: all .2s ease-in-out;
+}
+.mute i{
+    font-size: 23px;
+}
+
+.mute i:hover,
+.volume-up i:hover {
+    color: var(--second-color);
+    transform: scale(1.1);
+}
+
+.volume-up {
+    position: absolute;
+    top: 84%;
+    right: 45%;
+}
+
+.volume-active {
+    color: var(--second-color);
+}
+
+.volume-inactive {
+    color: #ffffff90;
+}
 
 @media (max-width: 995px) {
     .slider {
