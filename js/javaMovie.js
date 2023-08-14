@@ -13,9 +13,13 @@ let mute = $.querySelector(".mute i")
 
 window.addEventListener("DOMContentLoaded", function () {
     $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
-    video.play()
     video.muted = true;
 })
+window.addEventListener("load", function () {
+    video.play()
+
+})
+
 function changeHandler(event) {
     brightnessFilter.style.filter = "brightness(" + event.target.value + "%)"
 }
