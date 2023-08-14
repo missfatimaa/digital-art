@@ -819,11 +819,12 @@ footer .source a {
 }
 .tv-frame{
     position: relative;
-    margin-top: 5rem;
+    width: 85%;
+    margin: 0 auto;
     text-align: center;
 }
 .tv-frame img{
-    width: 85%;
+    width: 100%;
 }
 
 .video-player {
@@ -893,6 +894,13 @@ footer .source a {
 .volume-inactive {
     color: #ffffff90;
 }
+.movie-info{
+    position:absolute;
+    top: 20%;
+    text-align: start;
+    left: 3%;
+}
+
 
 @media (max-width: 995px) {
     .slider {
