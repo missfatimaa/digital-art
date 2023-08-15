@@ -1194,7 +1194,8 @@ footer .source a {
     }
 
     .slider {
-        height: 10rem;
+        /* height: 10rem; */
+        width: 80%;
     }
 
     .txt p {
@@ -1313,5 +1314,10 @@ footer .source a {
     .player-icons {
         top: 67%;
         right: 30%;
+    }
+    
+    .slider {
+        height: 12rem;
+        /* width: 80%; */
     }
 }
