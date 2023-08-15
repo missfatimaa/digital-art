@@ -1020,10 +1020,6 @@ footer .source a {
         top: 69%;
         right: 35%;
     }
-
-    .movie-info-box-mobile {
-        /* padding: 5px 35px; */
-    }
 }
 
 @media (max-width: 700px) {
