@@ -817,13 +817,15 @@ footer .source a {
 .moviePage-nav {
     background-color: transparent;
 }
-.tv-frame{
+
+.tv-frame {
     position: relative;
-    width: 85%;
+    width: 87%;
     margin: 0 auto;
     text-align: center;
 }
-.tv-frame img{
+
+.tv-frame img {
     width: 100%;
 }
 
@@ -835,7 +837,7 @@ footer .source a {
 }
 
 .video video {
-    width: 80%;
+    width: 81%;
 }
 
 .video {
@@ -843,15 +845,19 @@ footer .source a {
     position: relative;
 }
 
-.play-icon {
+.player-icons {
     position: absolute;
-    top: 82%;
-    left: 48%;
+    display: flex;
+    align-items: center;
+    top: 80%;
+    right: 44%;
+    gap: 21px;
+    z-index: 99;
 }
 
 .play-icon i {
     color: #ffffff90;
-    font-size: 45px;
+    font-size: 50px;
     transition: all .2s ease-in-out;
 }
 
@@ -860,31 +866,20 @@ footer .source a {
     transform: scale(1.1);
 }
 
-.mute {
-    position: absolute;
-    top: 84%;
-    left: 44%;
-}
-
 .mute i,
 .volume-up i {
     font-size: 20px;
     transition: all .2s ease-in-out;
 }
-.mute i{
+
+.mute i {
     font-size: 23px;
 }
 
 .mute i:hover,
 .volume-up i:hover {
     color: var(--second-color);
-    transform: scale(1.1);
-}
-
-.volume-up {
-    position: absolute;
-    top: 84%;
-    right: 45%;
+    transform: scale(1.2);
 }
 
 .volume-active {
@@ -894,13 +889,65 @@ footer .source a {
 .volume-inactive {
     color: #ffffff90;
 }
-.movie-info{
-    position:absolute;
-    top: 20%;
+
+.movie-info-box {
+    font-family: var(--normal-font);
+    position: absolute;
+    top: 65%;
     text-align: start;
-    left: 3%;
+    left: 4%;
+    color: var(--first-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
+.movie-info-box h1 {
+    font-family: var(--heading-font);
+}
+
+.movie-info-box p {
+    color: #dddddd;
+    font-size: 10px;
+    width: 40%;
+}
+
+.movie-info {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+    align-items: center;
+}
+
+.movie-info :first-child {
+    font-size: 17px;
+}
+
+.movie-info :nth-child(2) {
+    border-left: 1px solid var(--first-color);
+    padding-left: 5px;
+}
+
+@media (max-width: 1400px) {
+    .movie-info-box {
+        top: 60%;
+    }
+
+    .player-icons {
+        right: 43%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .movie-info-box {
+        top: 55%;
+    }
+
+    .player-icons {
+        top: 78%;
+        right: 42%;
+    }
+}
 
 @media (max-width: 995px) {
     .slider {
@@ -911,6 +958,11 @@ footer .source a {
         font-family: var(--normal-font);
         margin-top: .5rem;
         font-size: 14px;
+    }
+
+    .player-icons {
+        top: 75%;
+        right: 39%;
     }
 }
 
@@ -927,6 +979,13 @@ footer .source a {
         width: 70%;
         height: 45%;
         left: 15%;
+    }
+}
+
+@media (max-width: 767px) {
+    .player-icons {
+        top: 69%;
+        right: 35%;
     }
 }
 
@@ -1169,9 +1228,20 @@ footer .source a {
     }
 }
 
-@media (max-width: 400px) {
-    /* ///thems popup */
+@media (max-width: 530px) {
+    .play-icon i {
+        font-size: 40px;
+    }
 
+    .player-icons {
+        top: 68%;
+        right: 32%;
+    }
+}
+
+@media (max-width: 400px) {
+
+    /* ///thems popup */
     .popup-close a {
         font-size: 25px;
     }
@@ -1205,5 +1275,10 @@ footer .source a {
 
     .footer-right a {
         font-size: 8px;
+    }
+
+    .player-icons {
+        top: 67%;
+        right: 30%;
     }
 }
