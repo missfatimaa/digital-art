@@ -9,7 +9,7 @@ let video = $.querySelector("#video")
 let playerIcon = $.querySelector(".video-icon")
 let volumeUp = $.querySelector(".volume-up i")
 let mute = $.querySelector(".mute i")
-let videoSrc = ['/images/Robert-Downey-Jr.-Smile.jpg', '/images/sandra.jpg', '/images/bradPittjpg.jpg', '/images/cate.jpg', '/images/keanu.webp', '/images/anne.webp', '/images/Benedict.png','/images/Golshifteh Farahani.jpg']
+let videoSrc = ['/video/Oppenheimer.mp4', '/video/jumanji.mp4', '/images/bradPittjpg.jpg', '/images/cate.jpg', '/images/keanu.webp', '/images/anne.webp', '/images/Benedict.png','/images/Golshifteh Farahani.jpg']
 let videoIndex = 0
 
 

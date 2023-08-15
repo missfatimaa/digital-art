@@ -820,7 +820,7 @@ footer .source a {
 
 .tv-frame {
     position: relative;
-    width: 87%;
+    width: 65%;
     margin: 0 auto;
     text-align: center;
 }
@@ -832,12 +832,12 @@ footer .source a {
 .video-player {
     position: absolute;
     width: 100%;
-    top: 2%;
+    top: 1%;
     left: 0;
 }
 
 .video video {
-    width: 81%;
+    width: 64%;
 }
 
 .video {
@@ -849,8 +849,8 @@ footer .source a {
     position: absolute;
     display: flex;
     align-items: center;
-    top: 80%;
-    right: 44%;
+    top: 79%;
+    right: 42.5%;
     gap: 21px;
     z-index: 99;
 }
@@ -893,7 +893,7 @@ footer .source a {
 .movie-info-box {
     font-family: var(--normal-font);
     position: absolute;
-    top: 65%;
+    top: 55%;
     text-align: start;
     left: 4%;
     color: var(--first-color);
@@ -910,7 +910,7 @@ footer .source a {
 .movie-info-box p {
     color: #dddddd;
     font-size: 10px;
-    width: 40%;
+    width: 38%;
 }
 
 .movie-info {
@@ -957,6 +957,85 @@ footer .source a {
     color: var(--second-color);
 }
 
+/* ///////////////movies line */
+.main-movie {
+    position: relative;
+    margin-top: 10rem;
+}
+
+.right-movie,
+.left-movie {
+    position: absolute;
+    top: 10%;
+    width: 15%;
+}
+
+.right-movie {
+    right: .5%;
+    cursor: pointer;
+}
+
+.left-movie {
+    left: .5%;
+}
+
+.right-movie::after {
+    content: '';
+    position: absolute;
+    box-shadow: 30px 0 50px 80px rgba(0, 0, 0, 0.749);
+    width: 0;
+    top: 0;
+    left: 0;
+    height: 80%;
+    transition: all .3s ease;
+}
+
+.left-movie::before {
+    content: '';
+    position: absolute;
+    box-shadow: -30px 0 50px 80px rgba(0, 0, 0, 0.749);
+    width: 0px;
+    top: 0;
+    right: 0;
+    height: 80%;
+    transition: all .3s ease;
+}
+
+.left-movie:hover::before,
+.right-movie:hover:after {
+    box-shadow: none;
+}
+
+.main-movie::after,
+.main-movie::before {
+    font-family: FontAwesome;
+    position: absolute;
+    color: var(--second-color);
+    font-size: 35px;
+    top: 43%;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.main-movie::after {
+    content: "\f054";
+    left: 82.8%;
+}
+
+.main-movie::before {
+    content: "\f053";
+    right: 82.8%;
+}
+
+
+.right-movie img,
+.left-movie img {
+    border-radius: 20px;
+    z-index: 99;
+    cursor: pointer;
+}
+
+
 
 @media (max-width: 1400px) {
     .movie-info-box {
@@ -998,6 +1077,22 @@ footer .source a {
     .video-player {
         top: 0;
     }
+
+    .video video {
+        width: 85%;
+    }
+
+    .tv-frame {
+        width: 87%;
+    }
+    .main-movie::after {
+        left: 95%;
+    }
+    
+    .main-movie::before {
+        right: 95%;
+    }
+    
 }
 
 @media (max-width: 840px) {
