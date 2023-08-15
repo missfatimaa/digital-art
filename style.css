@@ -938,6 +938,7 @@ footer .source a {
     margin-top: 20px;
     padding: 5px 30px;
     text-align: center;
+    margin-bottom: 100px;
 }
 
 .movie-info-mobile {
@@ -1315,9 +1316,8 @@ footer .source a {
         top: 67%;
         right: 30%;
     }
-    
+
     .slider {
         height: 12rem;
-        /* width: 80%; */
     }
 }
