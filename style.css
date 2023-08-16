@@ -902,7 +902,7 @@ footer .source a {
     gap: 10px;
 }
 
-.movie-info-box h1,
+.movie-info-box h3,
 .movie-info-box-mobile h3 {
     font-family: var(--heading-font);
 }
@@ -977,6 +977,7 @@ footer .source a {
 
 .left-movie {
     left: .5%;
+    cursor: pointer;
 }
 
 .right-movie::after {
@@ -1011,9 +1012,8 @@ footer .source a {
     font-family: FontAwesome;
     position: absolute;
     color: var(--second-color);
-    font-size: 35px;
+    font-size: 25px;
     top: 43%;
-    cursor: pointer;
     z-index: 99;
 }
 
@@ -1027,29 +1027,32 @@ footer .source a {
     right: 82.8%;
 }
 
-
 .right-movie img,
 .left-movie img {
     border-radius: 20px;
     z-index: 99;
-    cursor: pointer;
+    transition: all .3s ease-in-out;
 }
-
 
 
 @media (max-width: 1400px) {
     .movie-info-box {
-        top: 60%;
+        top: 45%;
     }
 
     .player-icons {
-        right: 43%;
+        right: 41%;
     }
+
 }
 
 @media (max-width: 1200px) {
     .movie-info-box {
-        top: 55%;
+        top: 30%;
+    }
+
+    .movie-info-box p {
+        width: 45%;
     }
 
     .player-icons {
@@ -1085,14 +1088,15 @@ footer .source a {
     .tv-frame {
         width: 87%;
     }
+
     .main-movie::after {
         left: 95%;
     }
-    
+
     .main-movie::before {
         right: 95%;
     }
-    
+
 }
 
 @media (max-width: 840px) {

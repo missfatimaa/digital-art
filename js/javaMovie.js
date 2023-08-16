@@ -9,18 +9,79 @@ let video = $.querySelector("#video")
 let playerIcon = $.querySelector(".video-icon")
 let volumeUp = $.querySelector(".volume-up i")
 let mute = $.querySelector(".mute i")
-let videoSrc = ['/video/Oppenheimer.mp4', '/video/jumanji.mp4', '/images/bradPittjpg.jpg', '/images/cate.jpg', '/images/keanu.webp', '/images/anne.webp', '/images/Benedict.png','/images/Golshifteh Farahani.jpg']
+let videoSrc = ['/video/Oppenheimer.mp4', '/video/jumanji.mp4', '/video/showing up.mp4', '/video/extraction.mp4']
 let videoIndex = 0
-
-
+let rightMovie = $.querySelector(".right-movie img")
+let leftMovie = $.querySelector(".left-movie img")
+let movieNameArray = ['Oppenheimer', 'Jumanji(Welcome To The Jungle)', 'Showing Up', 'Extraction']
+let movieName = $.querySelector("#movie-name")
+let movieNameMob = $.querySelector("#movie-name-mobile")
+let posters = ['/images/oppenheimer-movie-poster.jpg', '/images/jumanji.jpg', '/images/showing.jpg', '/images/extraction.jpg']
+let posterIndex = 3
 window.addEventListener("DOMContentLoaded", function () {
     $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
     video.muted = true;
 })
 window.addEventListener("load", function () {
+    video.setAttribute("src", videoSrc[videoIndex])
     video.play()
-
+    rightMovie.setAttribute("src", posters[videoIndex + 1])
+    leftMovie.setAttribute("src", posters[posterIndex])
 })
+
+function prevVideo() {
+    playerIcon.classList.remove("fa-play-circle")
+    playerIcon.classList.add("fa-pause-circle")
+    playerIcon.id = "pause-icon"
+    videoIndex--
+    if (videoIndex < 0) {
+        videoIndex = videoSrc.length - 1
+    }
+    console.log("prev");
+    video.setAttribute("src", videoSrc[videoIndex])
+    video.play()
+    movieName.innerHTML = movieNameArray[videoIndex]
+    leftMovie.style.transform = "scale(1)"
+    posterIndex++
+    if (posterIndex > posters.length - 1) {
+        posterIndex = 0
+    }
+    leftMovie.setAttribute("src", posters[posterIndex + 2])
+    rightMovie.setAttribute("src", posters[posterIndex])
+}
+
+function nextVideo() {
+    playerIcon.classList.remove("fa-play-circle")
+    playerIcon.classList.add("fa-pause-circle")
+    playerIcon.id = "pause-icon"
+    console.log("next");
+    videoIndex++
+    if (videoIndex > videoSrc.length - 1) {
+        videoIndex = 0
+    }
+    video.setAttribute("src", videoSrc[videoIndex])
+    video.play()
+    movieName.innerHTML = movieNameArray[videoIndex]
+    rightMovie.style.transform = "scale(1)"
+    rightMovie.setAttribute("src", posters[videoIndex])
+}
+
+
+rightMovie.addEventListener("click", nextVideo)
+leftMovie.addEventListener("click", prevVideo)
+rightMovie.addEventListener("mouseenter", function () {
+    rightMovie.style.transform = "scale(1.1)"
+})
+rightMovie.addEventListener("mouseleave", function () {
+    rightMovie.style.transform = "scale(1)"
+})
+leftMovie.addEventListener("mouseenter", function () {
+    leftMovie.style.transform = "scale(1.1)"
+})
+leftMovie.addEventListener("mouseleave", function () {
+    leftMovie.style.transform = "scale(1)"
+})
+
 
 function changeHandler(event) {
     brightnessFilter.style.filter = "brightness(" + event.target.value + "%)"
