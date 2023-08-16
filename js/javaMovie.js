@@ -10,14 +10,23 @@ let playerIcon = $.querySelector(".video-icon")
 let volumeUp = $.querySelector(".volume-up i")
 let mute = $.querySelector(".mute i")
 let videoSrc = ['/video/Oppenheimer.mp4', '/video/jumanji.mp4', '/video/showing up.mp4', '/video/extraction.mp4']
+let posters = ['/images/oppenheimer-movie-poster.jpg', '/images/jumanji.jpg', '/images/showing.jpg', '/images/extraction.jpg']
+let imdbArray = ['⭐8.6', '⭐6.9', '⭐6.4', '⭐6.8']
+let timeLineArray = ['3h', '1h 59m', '1h 48m', '1h 56m']
+let genreArray = ['Drama, Thriller', 'Adventure, Comedy', 'Drama, Comedy', 'Action, Thriller']
 let videoIndex = 0
 let rightMovie = $.querySelector(".right-movie img")
 let leftMovie = $.querySelector(".left-movie img")
 let movieNameArray = ['Oppenheimer', 'Jumanji(Welcome To The Jungle)', 'Showing Up', 'Extraction']
 let movieName = $.querySelector("#movie-name")
 let movieNameMob = $.querySelector("#movie-name-mobile")
-let posters = ['/images/oppenheimer-movie-poster.jpg', '/images/jumanji.jpg', '/images/showing.jpg', '/images/extraction.jpg']
-let posterIndex = 3
+let posterIndex = 0
+let imdb = $.querySelector(".movie-info :first-child")
+let timeLine = $.querySelector(".movie-info :nth-child(2)")
+let genre = $.querySelector(".movie-info :nth-child(4)")
+let leftArrow = $.querySelector(".fa-chevron-left")
+let rightArrow = $.querySelector(".fa-chevron-right")
+
 window.addEventListener("DOMContentLoaded", function () {
     $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
     video.muted = true;
@@ -26,10 +35,11 @@ window.addEventListener("load", function () {
     video.setAttribute("src", videoSrc[videoIndex])
     video.play()
     rightMovie.setAttribute("src", posters[videoIndex + 1])
-    leftMovie.setAttribute("src", posters[posterIndex])
+    leftMovie.setAttribute("src", posters[posters.length - 1])
 })
 
-function prevVideo() {
+function prevVideo(event) {
+    event.preventDefault()
     playerIcon.classList.remove("fa-play-circle")
     playerIcon.classList.add("fa-pause-circle")
     playerIcon.id = "pause-icon"
@@ -42,15 +52,15 @@ function prevVideo() {
     video.play()
     movieName.innerHTML = movieNameArray[videoIndex]
     leftMovie.style.transform = "scale(1)"
-    posterIndex++
-    if (posterIndex > posters.length - 1) {
-        posterIndex = 0
-    }
-    leftMovie.setAttribute("src", posters[posterIndex + 2])
-    rightMovie.setAttribute("src", posters[posterIndex])
+    imdb.innerHTML = imdbArray[videoIndex]
+    timeLine.innerHTML = timeLineArray[videoIndex]
+    genre.innerHTML = genreArray[videoIndex]
+    // leftMovie.setAttribute("src", posters[videoIndex-1])
+    // rightMovie.setAttribute("src", posters[videoIndex])
 }
 
-function nextVideo() {
+function nextVideo(event) {
+    event.preventDefault()
     playerIcon.classList.remove("fa-play-circle")
     playerIcon.classList.add("fa-pause-circle")
     playerIcon.id = "pause-icon"
@@ -63,20 +73,25 @@ function nextVideo() {
     video.play()
     movieName.innerHTML = movieNameArray[videoIndex]
     rightMovie.style.transform = "scale(1)"
-    rightMovie.setAttribute("src", posters[videoIndex])
+    imdb.innerHTML = imdbArray[videoIndex]
+    timeLine.innerHTML = timeLineArray[videoIndex]
+    genre.innerHTML = genreArray[videoIndex]
+    // leftMovie.setAttribute("src", posters[videoIndex - 1])
+    // rightMovie.setAttribute("src", posters[videoIndex + 1])
 }
 
-
+rightArrow.addEventListener("click", nextVideo)
+leftArrow.addEventListener("click", prevVideo)
 rightMovie.addEventListener("click", nextVideo)
 leftMovie.addEventListener("click", prevVideo)
 rightMovie.addEventListener("mouseenter", function () {
-    rightMovie.style.transform = "scale(1.1)"
+    rightMovie.style.transform = "scale(1.05)"
 })
 rightMovie.addEventListener("mouseleave", function () {
     rightMovie.style.transform = "scale(1)"
 })
 leftMovie.addEventListener("mouseenter", function () {
-    leftMovie.style.transform = "scale(1.1)"
+    leftMovie.style.transform = "scale(1.05)"
 })
 leftMovie.addEventListener("mouseleave", function () {
     leftMovie.style.transform = "scale(1)"

@@ -960,7 +960,7 @@ footer .source a {
 /* ///////////////movies line */
 .main-movie {
     position: relative;
-    margin-top: 10rem;
+    margin: 10rem 0;
 }
 
 .right-movie,
@@ -971,12 +971,12 @@ footer .source a {
 }
 
 .right-movie {
-    right: .5%;
+    right: -.5%;
     cursor: pointer;
 }
 
 .left-movie {
-    left: .5%;
+    left: -.5%;
     cursor: pointer;
 }
 
@@ -991,7 +991,7 @@ footer .source a {
     transition: all .3s ease;
 }
 
-.left-movie::before {
+.left-movie::after {
     content: '';
     position: absolute;
     box-shadow: -30px 0 50px 80px rgba(0, 0, 0, 0.749);
@@ -1002,35 +1002,37 @@ footer .source a {
     transition: all .3s ease;
 }
 
-.left-movie:hover::before,
+.left-movie:hover::after,
 .right-movie:hover:after {
     box-shadow: none;
 }
 
-.main-movie::after,
-.main-movie::before {
-    font-family: FontAwesome;
+.left-arrows i,
+.right-arrows i {
     position: absolute;
     color: var(--second-color);
-    font-size: 25px;
-    top: 43%;
-    z-index: 99;
+    font-size: 40px;
+    top: 45%;
+    z-index: 99999;
+    transition: all .2s ease-in-out;
 }
 
-.main-movie::after {
-    content: "\f054";
-    left: 82.8%;
+.left-arrows i {
+    left: -3%;
 }
 
-.main-movie::before {
-    content: "\f053";
-    right: 82.8%;
+.right-arrows i {
+    right: -3%;
+}
+
+.left-arrows i:hover,
+.right-arrows i:hover {
+    color: var(--first-color);
 }
 
 .right-movie img,
 .left-movie img {
     border-radius: 20px;
-    z-index: 99;
     transition: all .3s ease-in-out;
 }
 
@@ -1058,6 +1060,14 @@ footer .source a {
     .player-icons {
         top: 78%;
         right: 42%;
+    }
+
+    .right-arrows i {
+        right: -4%;
+    }
+
+    .left-arrows i {
+        left: -4%;
     }
 }
 
@@ -1089,14 +1099,6 @@ footer .source a {
         width: 87%;
     }
 
-    .main-movie::after {
-        left: 95%;
-    }
-
-    .main-movie::before {
-        right: 95%;
-    }
-
 }
 
 @media (max-width: 840px) {
@@ -1115,10 +1117,18 @@ footer .source a {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 769px) {
     .player-icons {
         top: 69%;
         right: 35%;
+    }
+
+    .right-arrows i {
+        right: -7%;
+    }
+
+    .left-arrows i {
+        left: -7%;
     }
 }
 
@@ -1412,11 +1422,24 @@ footer .source a {
     }
 
     .player-icons {
-        top: 67%;
-        right: 30%;
+        top: 65%;
+        right: 29%;
     }
 
     .slider {
         height: 12rem;
+    }
+
+    .right-arrows i,
+    .left-arrows i {
+        top: 40%;
+    }
+
+    .right-arrows i {
+        right: -10%;
+    }
+
+    .left-arrows i {
+        left: -10%;
     }
 }
