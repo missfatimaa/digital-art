@@ -1098,7 +1098,9 @@ footer .source a {
     .tv-frame {
         width: 87%;
     }
-
+    .main-movie {
+        margin: 10rem 0 2rem 0;
+    }
 }
 
 @media (max-width: 840px) {
@@ -1423,7 +1425,7 @@ footer .source a {
 
     .player-icons {
         top: 65%;
-        right: 29%;
+        right: 30%;
     }
 
     .slider {
