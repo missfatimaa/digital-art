@@ -949,7 +949,7 @@ footer .source a {
 .movie-info-box-mobile p {
     color: #dddddd;
     font-size: 12px;
-    width: 90%;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -1099,7 +1099,7 @@ footer .source a {
         width: 87%;
     }
     .main-movie {
-        margin: 10rem 0 2rem 0;
+        margin: 5rem 0 1rem 0;
     }
 }
 
