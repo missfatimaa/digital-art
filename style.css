@@ -1378,11 +1378,6 @@ footer .source a {
     .play-icon i {
         font-size: 40px;
     }
-
-    .player-icons {
-        top: 68%;
-        right: 32%;
-    }
 }
 
 @media (max-width: 400px) {

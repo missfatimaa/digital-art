@@ -15,7 +15,7 @@ let imdbArray = ['⭐8.6', '⭐6.9', '⭐6.4', '⭐6.8']
 let timeLineArray = ['3h', '1h 59m', '1h 48m', '1h 56m']
 let genreArray = ['Drama, Thriller', 'Adventure, Comedy', 'Drama, Comedy', 'Action, Thriller']
 let movieYearArray = ['2023', '2017', '2022', '2020']
-let movieNameArray = ['Oppenheimer', 'Jumanji(Welcome To The Jungle)', 'Showing Up', 'Extraction']
+let movieNameArray = ['Oppenheimer', 'Jumanji (Welcome To The Jungle)', 'Showing Up', 'Extraction']
 const movieDesArray = [
     'During World War II, Lt. Gen. Leslie Groves Jr. appoints physicist J. Robert Oppenheimer to work on the top-secret Manhattan Project. Oppenheimer and a team of scientists spend years developing and designing the atomic bomb.',
     'When four students play with a magical video game, they are drawn to the jungle world of Jumanji, where they are trapped as their avatars. To return to the real world, they must finish the game.',
