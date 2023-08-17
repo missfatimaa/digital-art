@@ -66,25 +66,19 @@ function videoAnimation() {
     video.addEventListener("play", function () {
         video.style.animation = 'Slider .2s ease-in-out'
         movieInfo.style.animation = 'SliderTxt .6s ease-in'
+        movieInfomob.style.animation = 'SliderTxtMob 1s ease-out'
     })
     video.style.animation = 'none'
     movieInfo.style.animation = 'none'
+    movieInfomob.style.animation = 'none'
     interval
 }
-function prevVideo(event) {
-    event.preventDefault()
-    videoAnimation()
+
+function movieInfoFiller(){
     playerIcon.classList.remove("fa-play-circle")
     playerIcon.classList.add("fa-pause-circle")
     playerIcon.id = "pause-icon"
-    videoIndex--
-    if (videoIndex < 0) {
-        videoIndex = videoSrc.length - 1
-    }
-    console.log("prev");
     video.setAttribute("src", videoSrc[videoIndex])
-    video.play()
-    leftMovie.style.transform = "scale(1)"
     movieName.innerHTML = movieNameArray[videoIndex]
     movieNameMob.innerHTML = movieNameArray[videoIndex]
     imdb.innerHTML = imdbArray[videoIndex]
@@ -97,6 +91,19 @@ function prevVideo(event) {
     movieYearMob.innerHTML = movieYearArray[videoIndex]
     movieDes.innerHTML = movieDesArray[videoIndex]
     movieDesMob.innerHTML = movieDesArray[videoIndex]
+
+}
+function prevVideo(event) {
+    event.preventDefault()
+    videoAnimation()
+    videoIndex--
+    if (videoIndex < 0) {
+        videoIndex = videoSrc.length - 1
+    }
+    console.log("prev");
+    movieInfoFiller()
+    video.play()
+    leftMovie.style.transform = "scale(1)"
     // movieDes.innerHTML, movieDesMob.innerHTML = movieDesArray[videoIndex]
     // leftMovie.setAttribute("src", posters[videoIndex-1])
     // rightMovie.setAttribute("src", posters[videoIndex])
@@ -105,29 +112,14 @@ function prevVideo(event) {
 function nextVideo(event) {
     event.preventDefault()
     videoAnimation()
-    playerIcon.classList.remove("fa-play-circle")
-    playerIcon.classList.add("fa-pause-circle")
-    playerIcon.id = "pause-icon"
     console.log("next");
     videoIndex++
     if (videoIndex > videoSrc.length - 1) {
         videoIndex = 0
     }
-    video.setAttribute("src", videoSrc[videoIndex])
+    movieInfoFiller()
     video.play()
     rightMovie.style.transform = "scale(1)"
-    movieName.innerHTML = movieNameArray[videoIndex]
-    movieNameMob.innerHTML = movieNameArray[videoIndex]
-    imdb.innerHTML = imdbArray[videoIndex]
-    imdbMob.innerHTML = imdbArray[videoIndex]
-    timeLine.innerHTML = timeLineArray[videoIndex]
-    timeLineMob.innerHTML = timeLineArray[videoIndex]
-    genre.innerHTML = genreArray[videoIndex]
-    genreMob.innerHTML = genreArray[videoIndex]
-    movieYear.innerHTML = movieYearArray[videoIndex]
-    movieYearMob.innerHTML = movieYearArray[videoIndex]
-    movieDes.innerHTML = movieDesArray[videoIndex]
-    movieDesMob.innerHTML = movieDesArray[videoIndex]
     // leftMovie.setAttribute("src", posters[videoIndex - 1])
     // rightMovie.setAttribute("src", posters[videoIndex + 1])
 }
