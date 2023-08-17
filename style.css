@@ -853,7 +853,7 @@ footer .source a {
     right: 42.5%;
     gap: 21px;
     z-index: 99;
-    transition: transform .2s;
+    transition: transform .6s;
 }
 
 .play-icon i {
@@ -922,7 +922,8 @@ footer .source a {
 }
 
 .movie-info :first-child {
-    font-size: 17px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .movie-info :nth-child(2) {
@@ -962,6 +963,7 @@ footer .source a {
 .main-movie {
     position: relative;
     margin: 10rem 0;
+    overflow: hidden;
 }
 
 .right-movie,
@@ -1034,9 +1036,32 @@ footer .source a {
 .right-movie img,
 .left-movie img {
     border-radius: 20px;
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 
+/* ///////////video slider animation */
+@keyframes Slider {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes SliderTxt {
+    0% {
+        opacity: 0;
+        transform: translateY(-500px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 @media (max-width: 1400px) {
     .movie-info-box {
@@ -1046,7 +1071,9 @@ footer .source a {
     .player-icons {
         right: 41%;
     }
-
+    .slider {
+        width: 80%;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -1074,7 +1101,8 @@ footer .source a {
 
 @media (max-width: 995px) {
     .slider {
-        height: 15rem;
+        height: 25rem;
+        width: 90%;
     }
 
     .txt p {
@@ -1099,6 +1127,7 @@ footer .source a {
     .tv-frame {
         width: 87%;
     }
+
     .main-movie {
         margin: 5rem 0 1rem 0;
     }
@@ -1117,6 +1146,10 @@ footer .source a {
         width: 70%;
         height: 45%;
         left: 15%;
+    }
+    .slider {
+        height: 20rem;
+        width: 90%;
     }
 }
 
@@ -1307,13 +1340,13 @@ footer .source a {
     }
 
     .slider {
-        /* height: 10rem; */
+        height: 15rem;
         width: 80%;
     }
 
     .txt p {
         font-family: var(--normal-font);
-        margin-top: .2rem;
+        margin-top: .5rem;
         font-size: 12px;
     }
 

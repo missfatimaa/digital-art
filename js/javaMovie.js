@@ -39,19 +39,21 @@ let movieYearMob = $.querySelector(".movie-info-mobile :nth-child(6)")
 let leftArrow = $.querySelector(".fa-chevron-left")
 let rightArrow = $.querySelector(".fa-chevron-right")
 let movieDesMob = $.querySelector(".movie-info-box-mobile p")
+let movieInfomob = $.querySelector(".movie-info-box-mobile")
 let movieDes = $.querySelector(".movie-info-box p")
+let movieInfo = $.querySelector(".movie-info-box")
 let playerIconBox = $.querySelector(".player-icons")
 let tvFrame = $.querySelector(".tv-frame")
 
 let interval = setInterval(function () {
     playerIconBox.style.transform = "scale(0)"
-    return 5
 }, 3000)
 
 window.addEventListener("DOMContentLoaded", function () {
     $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
     video.muted = true;
     interval
+    videoAnimation()
 })
 window.addEventListener("load", function () {
     video.setAttribute("src", videoSrc[videoIndex])
@@ -60,8 +62,18 @@ window.addEventListener("load", function () {
     leftMovie.setAttribute("src", posters[posters.length - 1])
 })
 
+function videoAnimation() {
+    video.addEventListener("play", function () {
+        video.style.animation = 'Slider .2s ease-in-out'
+        movieInfo.style.animation = 'SliderTxt .6s ease-in'
+    })
+    video.style.animation = 'none'
+    movieInfo.style.animation = 'none'
+    interval
+}
 function prevVideo(event) {
     event.preventDefault()
+    videoAnimation()
     playerIcon.classList.remove("fa-play-circle")
     playerIcon.classList.add("fa-pause-circle")
     playerIcon.id = "pause-icon"
@@ -92,6 +104,7 @@ function prevVideo(event) {
 
 function nextVideo(event) {
     event.preventDefault()
+    videoAnimation()
     playerIcon.classList.remove("fa-play-circle")
     playerIcon.classList.add("fa-pause-circle")
     playerIcon.id = "pause-icon"
@@ -126,6 +139,7 @@ tvFrame.addEventListener("mouseenter", function () {
 tvFrame.addEventListener("mouseleave", function () {
     playerIconBox.style.transform = "scale(0)"
 })
+
 rightArrow.addEventListener("click", nextVideo)
 leftArrow.addEventListener("click", prevVideo)
 rightMovie.addEventListener("click", nextVideo)
