@@ -40,10 +40,18 @@ let leftArrow = $.querySelector(".fa-chevron-left")
 let rightArrow = $.querySelector(".fa-chevron-right")
 let movieDesMob = $.querySelector(".movie-info-box-mobile p")
 let movieDes = $.querySelector(".movie-info-box p")
+let playerIconBox = $.querySelector(".player-icons")
+let tvFrame = $.querySelector(".tv-frame")
+
+let interval = setInterval(function () {
+    playerIconBox.style.transform = "scale(0)"
+    return 5
+}, 3000)
 
 window.addEventListener("DOMContentLoaded", function () {
     $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
     video.muted = true;
+    interval
 })
 window.addEventListener("load", function () {
     video.setAttribute("src", videoSrc[videoIndex])
@@ -110,7 +118,14 @@ function nextVideo(event) {
     // leftMovie.setAttribute("src", posters[videoIndex - 1])
     // rightMovie.setAttribute("src", posters[videoIndex + 1])
 }
+tvFrame.addEventListener("mouseenter", function () {
+    playerIconBox.style.transform = "scale(1)"
+    clearInterval(interval)
+})
 
+tvFrame.addEventListener("mouseleave", function () {
+    playerIconBox.style.transform = "scale(0)"
+})
 rightArrow.addEventListener("click", nextVideo)
 leftArrow.addEventListener("click", prevVideo)
 rightMovie.addEventListener("click", nextVideo)

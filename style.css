@@ -853,6 +853,7 @@ footer .source a {
     right: 42.5%;
     gap: 21px;
     z-index: 99;
+    transition: transform .2s;
 }
 
 .play-icon i {
