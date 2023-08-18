@@ -1471,10 +1471,6 @@ footer .source a {
     .poster-info{
         align-items: center;
     }
-    .poster-info :nth-child(2){
-        /* margin-bottom: .5rem; */
-    }
-
 }
 
 @media (max-width: 400px) {
