@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="this page give you the possibility to make your own watchList.">
+    <title>Popcorn-time (WatchList)</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/images/Popcorn-icon.png" type="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Limelight&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+</head>
+
+<body>
+    <nav class="d-flex justify-content-between fixed-top align-items-center moviePage-nav">
+        <ul class="d-flex mb-0" id="links">
+            <li><a href="/" title="Home">Home</a></li>
+            <li><a href="/actors.html" title="Actors">Actors</a></li>
+            <li><a href="/movies.html" title="Movies">Movies</a></li>
+            <li><a href="" class="active pb-1" title="WatchList">WatchList</a></li>
+        </ul>
+        <!--  -->
+        <div class="brightness-box d-none d-lg-flex">
+            <i class="far fa-sun me-2 dark"></i>
+            <input type="range" id="range" min="30" max="100" value="100">
+            <i class="fas fa-sun ms-2 light"></i>
+        </div>
+        <!--  -->
+        <a href="/movies.html#contacts" class="btn-branding" title="Contact">Contact</a>
+    </nav>
+    <div class="brightnessFilter container">
+
+
+    </div>
+
+    <script src="/js/javaMovie.js"></script>
+</body>
+
+</html>

@@ -962,14 +962,14 @@ footer .source a {
 /* ///////////////movies line */
 .main-movie {
     position: relative;
-    margin: 10rem 0;
     overflow: hidden;
+    margin-bottom: 7rem;
 }
 
 .right-movie,
 .left-movie {
     position: absolute;
-    top: 10%;
+    top: 17%;
     width: 15%;
 }
 
@@ -1137,7 +1137,7 @@ footer .source a {
     }
 
     .main-movie {
-        margin: 5rem 0 1rem 0;
+        margin: 0;
     }
 }
 
