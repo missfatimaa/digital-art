@@ -925,7 +925,7 @@ footer .source a {
 
 .movie-info {
     display: flex;
-    gap: 5px;
+    gap: 3px;
     font-size: 13px;
     align-items: center;
 }
@@ -949,7 +949,7 @@ footer .source a {
     margin-top: 20px;
     padding: 5px 30px;
     text-align: center;
-    margin-bottom:80px;
+    padding-bottom:50px;
 }
 
 .movie-info-mobile {
@@ -977,7 +977,7 @@ footer .source a {
 .right-movie,
 .left-movie {
     position: absolute;
-    top: 7%;
+    top: 6%;
     width: 15%;
 }
 
