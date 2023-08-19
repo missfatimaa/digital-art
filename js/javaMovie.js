@@ -29,7 +29,6 @@ let rightMovie = $.querySelector(".right-movie img")
 let leftMovie = $.querySelector(".left-movie img")
 let movieName = $.querySelector("#movie-name")
 let movieNameMob = $.querySelector("#movie-name-mobile")
-let posterIndex = 0
 let imdb = $.querySelector(".movie-info :first-child")
 let imdbMob = $.querySelector(".movie-info-mobile :first-child")
 let timeLine = $.querySelector(".movie-info :nth-child(2)")
@@ -46,6 +45,8 @@ let movieDes = $.querySelector(".movie-info-box p")
 let movieInfo = $.querySelector(".movie-info-box")
 let playerIconBox = $.querySelector(".player-icons")
 let tvFrame = $.querySelector(".tv-frame")
+let prevPoster = 0
+let nextPoster = 0
 
 let interval = setInterval(function () {
     playerIconBox.style.transform = "scale(0)"
@@ -93,8 +94,8 @@ function movieInfoFiller() {
     movieYearMob.innerHTML = movieYearArray[videoIndex]
     movieDes.innerHTML = movieDesArray[videoIndex]
     movieDesMob.innerHTML = movieDesArray[videoIndex]
-
 }
+
 function prevVideo(event) {
     event.preventDefault()
     videoAnimation()
@@ -106,9 +107,20 @@ function prevVideo(event) {
     movieInfoFiller()
     video.play()
     leftMovie.style.transform = "scale(1)"
-    // movieDes.innerHTML, movieDesMob.innerHTML = movieDesArray[videoIndex]
-    // leftMovie.setAttribute("src", posters[videoIndex-1])
-    // rightMovie.setAttribute("src", posters[videoIndex])
+    nextPoster = videoIndex
+    prevPoster = videoIndex
+    if (nextPoster === posters.length - 1 || prevPoster === posters.length - 1) {
+        nextPoster = -1
+        prevPoster = 5
+    }
+
+    console.log(prevPoster, nextPoster);
+    if (prevPoster > 0) {
+        leftMovie.setAttribute("src", posters[prevPoster - 1])
+    } else {
+        leftMovie.setAttribute("src", posters[posters.length - 1])
+    }
+    rightMovie.setAttribute("src", posters[nextPoster + 1])
 }
 
 function nextVideo(event) {
@@ -122,9 +134,23 @@ function nextVideo(event) {
     movieInfoFiller()
     video.play()
     rightMovie.style.transform = "scale(1)"
-    // leftMovie.setAttribute("src", posters[videoIndex - 1])
-    // rightMovie.setAttribute("src", posters[videoIndex + 1])
+    nextPoster = videoIndex
+    prevPoster = videoIndex
+    if (nextPoster === posters.length - 1 || prevPoster === posters.length - 1) {
+        nextPoster = -1
+        prevPoster = posters.length - 1
+    }
+
+    console.log(prevPoster, nextPoster);
+    if (prevPoster > 0) {
+        leftMovie.setAttribute("src", posters[prevPoster - 1])
+    } else {
+        leftMovie.setAttribute("src", posters[posters.length - 1])
+    }
+    rightMovie.setAttribute("src", posters[nextPoster + 1])
 }
+console.log(prevPoster, nextPoster);
+
 tvFrame.addEventListener("mouseenter", function () {
     playerIconBox.style.transform = "scale(1)"
     clearInterval(interval)
