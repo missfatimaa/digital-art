@@ -1,8 +1,8 @@
 let $ = document
 let heartIcon = $.querySelectorAll(".fa-heart")
 let heartLike = $.querySelectorAll(".watchlist-box div a")
-
-
+let searchBtn = $.querySelector("#search-button")
+let watchlistBoxes = $.querySelector(".watchlist-boxes")
 
 
 
@@ -22,6 +22,21 @@ function secondClick(item) {
     item.firstChild.classList.add("far")
     flag = 0
 }
+function watchlistMaker() {
+    let newWatchlist = $.createElement("div")
+    newWatchlist.className = "watchlist-box"
+    let newTitle = $.createElement("h6")
+    newTitle.innerHTML = "missfatimaa"
+    let newFilm = $.createElement("div")
+    let newFilmImg = $.createElement("img")
+    newFilmImg.setAttribute("src", "/images/extraction.jpg")
+    let newFilmName = $.createElement("p")
+    newFilmName.innerHTML = "Extraction 2"
+    newFilm.append(newFilmImg, newFilmName)
+    newWatchlist.append(newTitle, newFilm)
+    watchlistBoxes.appendChild(newWatchlist)
+}
+
 heartLike.forEach(function (item) {
     item.addEventListener("click", function (event) {
         event.preventDefault()
@@ -32,6 +47,11 @@ heartLike.forEach(function (item) {
         }
     })
 })
+
+
+searchBtn.addEventListener("click", watchlistMaker)
+
+
 
 /////brightness
 let rangeItem = $.getElementById("range")
