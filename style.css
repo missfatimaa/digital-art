@@ -946,7 +946,7 @@ footer .source a {
     margin-top: 20px;
     padding: 5px 30px;
     text-align: center;
-    padding-bottom:50px;
+    padding-bottom: 50px;
 }
 
 .movie-info-mobile {
@@ -1082,10 +1082,12 @@ footer .source a {
 .poster-img img {
     border-radius: 20px;
 }
-.poster-img{
+
+.poster-img {
     width: 10%;
     height: auto;
 }
+
 .poster-btns a {
     padding: 10px 20px;
     color: var(--first-color);
@@ -1098,16 +1100,20 @@ footer .source a {
     border: 1px solid var(--second-color);
 
 }
-.movie-poster-box{
+
+.movie-poster-box {
     margin: 7rem 0;
 }
-.movie-des{
+
+.movie-des {
     width: 100%;
 }
-.poster-info{
+
+.poster-info {
     align-items: end;
 }
-.poster-info div:nth-child(2){
+
+.poster-info div:nth-child(2) {
     margin-bottom: .5rem;
 }
 
@@ -1183,6 +1189,10 @@ footer .source a {
 
     .movie-poster-box {
         margin: 0;
+    }
+
+    .actors-info {
+        gap: 0;
     }
 }
 
@@ -1464,23 +1474,29 @@ footer .source a {
     .play-icon i {
         font-size: 40px;
     }
-    .poster-info{
+
+    .poster-info {
         align-items: center;
     }
-    .poster-info .movie-info-box-mobile p{
+
+    .poster-info .movie-info-box-mobile p {
         font-family: var(--normal-font);
         font-size: 10px;
     }
-    .poster-info .movie-info-box-mobile h3{
+
+    .poster-info .movie-info-box-mobile h3 {
         font-size: 18px;
     }
+
     .poster-btns a {
         padding: 10px 10px;
-    } 
+    }
+
     .poster-info .movie-info :first-child {
         font-size: 12px;
     }
-    .poster-info .movie-info{
+
+    .poster-info .movie-info {
         font-size: 10px;
     }
 }
