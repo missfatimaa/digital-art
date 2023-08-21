@@ -238,3 +238,14 @@ mute.addEventListener("click", function (event) {
     mute.classList.remove("volume-inactive")
     mute.classList.add("volume-active")
 })
+
+// themes color
+let themesBtn = $.querySelectorAll(".themes-btn")
+
+themesBtn.forEach(function (item) {
+    item.addEventListener('click', function (event) {
+        let res = event.target.dataset.color
+        localStorage.setItem("color",res)
+        $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
+    })
+})
