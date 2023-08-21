@@ -1124,6 +1124,7 @@ footer .source a {
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 20px;
+    margin-top: 2rem;
 }
 
 .watchlist-box h6 {
@@ -1183,6 +1184,30 @@ footer .source a {
     font-weight: bold;
 }
 
+.watchlist-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    margin: 0;
+}
+
+.watchlist-form input {
+    color: var(--first-color);
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 2px solid var(--second-color);
+    padding: 5px 120px 5px 5px;
+}
+
+.watchlist-form input::placeholder {
+    color: #dddddd;
+}
+
+.watchlist-form label {
+    color: #dddddd;
+}
 
 @media (max-width: 1400px) {
     .movie-info-box {
@@ -1531,7 +1556,14 @@ footer .source a {
         right: 25px;
         top: 15px;
     }
+
     /* /////.watchlist */
+    .watchlist-form {
+        /* margin: auto auto; */
+    }
+.watchList-hero{
+    text-align: start;
+}
 
 }
 
