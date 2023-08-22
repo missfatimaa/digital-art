@@ -3,54 +3,115 @@ let heartIcon = $.querySelectorAll(".fa-heart")
 let heartLike = $.querySelectorAll(".watchlist-box div a")
 let searchBtn = $.querySelector("#search-button")
 let watchlistBoxes = $.querySelector(".watchlist-boxes")
-
-
-
+let createBtn = $.querySelector("#create-btn")
+let searchBox = $.querySelector("#search-box")
+let watchlistForm = $.querySelector(".watchlist-form")
+let nameInput = $.querySelector("#name-input")
+let titleInput = $.querySelector("#title-input")
+let age = $.querySelector("#age")
+let searchInput = $.querySelector("#search-input")
 
 window.addEventListener("DOMContentLoaded", function () {
     $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
-})
-
-let flag = 0
-function firstClick(item) {
-    item.firstChild.classList.remove("far")
-    item.firstChild.classList.add("fa")
-    flag = 1
-}
-function secondClick(item) {
-    item.firstChild.classList.remove("fa")
-    item.firstChild.classList.add("far")
-    flag = 0
-}
-function watchlistMaker() {
-    let newWatchlist = $.createElement("div")
-    newWatchlist.className = "watchlist-box"
-    let newTitle = $.createElement("h6")
-    newTitle.innerHTML = "missfatimaa"
-    let newFilm = $.createElement("div")
-    let newFilmImg = $.createElement("img")
-    newFilmImg.setAttribute("src", "/images/extraction.jpg")
-    let newFilmName = $.createElement("p")
-    newFilmName.innerHTML = "Extraction 2"
-    newFilm.append(newFilmImg, newFilmName)
-    newWatchlist.append(newTitle, newFilm)
-    watchlistBoxes.appendChild(newWatchlist)
-}
-
-heartLike.forEach(function (item) {
-    item.addEventListener("click", function (event) {
-        event.preventDefault()
-        if (flag === 1) {
-            secondClick(item)
-        } else if (flag === 0) {
-            firstClick(item)
-        }
+    heartLike.forEach(function (item) {
+        item.style.display = "none"
     })
 })
 
 
-searchBtn.addEventListener("click", watchlistMaker)
+let flag = 0
+function likedMovie(item, newWatchlist) {
+    let newFilm = $.createElement("div")
+    let newFilmImg = $.createElement("img")
+    newFilmImg.setAttribute("src", "/images/extraction.jpg")
+    let newFilmName = $.createElement("p")
+    let sibling = item.previousElementSibling
+    newFilmName.innerHTML = sibling.innerHTML
+    newFilm.append(newFilmImg, newFilmName)
+    newWatchlist.appendChild(newFilm)
+}
 
+function movieMaker(newWatchlist) {
+    let newFilm = $.createElement("div")
+    let newFilmImg = $.createElement("img")
+    // newFilmImg.setAttribute("src", "/images/extraction.jpg")
+    let newFilmName = $.createElement("p")
+    newFilmName.innerHTML = searchInput.value
+    newFilm.append(newFilmImg, newFilmName)
+    newWatchlist.appendChild(newFilm)
+}
+
+function firstClick(item, newWatchlist) {
+    item.firstChild.classList.remove("far")
+    item.firstChild.classList.add("fa")
+    // flag = 0
+    likedMovie(item, newWatchlist)
+}
+function secondClick(item) {
+    item.firstChild.classList.remove("fa")
+    item.firstChild.classList.add("far")
+    // flag = 1
+}
+function watchlistMaker() {
+    $.querySelectorAll(".watchlist-box div").forEach(function (div) {
+        div.style.justifyContent = "space-between"
+    })
+    heartLike.forEach(function (item) {
+        item.style.display = "block"
+        item.addEventListener("click", function (event) {
+            console.log(flag);
+            event.preventDefault()
+            if (flag === 1) {
+                secondClick(item)
+                flag = 0
+            } else if (flag === 0) {
+                firstClick(item, newWatchlist)
+                flag = 1
+            }
+        })
+
+    })
+    let newWatchlist = $.createElement("div")
+    newWatchlist.className = "watchlist-box"
+    let newTitle = $.createElement("h6")
+    newTitle.innerHTML = `${titleInput.value} / ${nameInput.value}(${age.value})`
+    newWatchlist.append(newTitle)
+    movieMaker(newWatchlist)
+    watchlistBoxes.appendChild(newWatchlist)
+}
+
+searchBtn.addEventListener("click", function () {
+    if (searchInput.value === '') {
+        searchInput.placeholder = "Search something!!"
+    }
+    else {
+        watchlistMaker()
+    }
+})
+createBtn.addEventListener("click", function (event) {
+    event.preventDefault()
+    if (nameInput.value === '' || titleInput.value === '' || age.value === '') {
+        nameInput.placeholder = "Please Enter Name First !!"
+        titleInput.placeholder = "Please Enter Title First !!"
+        nameInput.classList.add("warning-shadow")
+        titleInput.classList.add("warning-shadow")
+        age.classList.add("warning-shadow")
+        nameInput.addEventListener("focus", function () {
+            nameInput.classList.remove("warning-shadow")
+        })
+        titleInput.addEventListener("focus", function () {
+            titleInput.classList.remove("warning-shadow")
+        })
+        age.addEventListener("focus", function () {
+            age.classList.remove("warning-shadow")
+        })
+    }
+    else {
+        alert(`Dear ${nameInput.value},\rPlease Create Your Own WatchList🎬`)
+        searchBox.style.display = "flex"
+        watchlistForm.style.display = "none"
+    }
+})
 
 
 /////brightness

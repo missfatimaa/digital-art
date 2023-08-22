@@ -1144,7 +1144,6 @@ footer .source a {
     align-items: center;
     gap: 20px;
     margin-bottom: 10px;
-    justify-content: space-between;
 }
 
 .watchlist-box div p {
@@ -1208,6 +1207,13 @@ footer .source a {
 .watchlist-form label {
     color: #dddddd;
 }
+
+/* ////////watchlist search */
+#search-box {
+    display: none;
+}
+
+
 
 @media (max-width: 1400px) {
     .movie-info-box {
@@ -1558,12 +1564,10 @@ footer .source a {
     }
 
     /* /////.watchlist */
-    .watchlist-form {
-        /* margin: auto auto; */
+
+    .watchList-hero {
+        text-align: start;
     }
-.watchList-hero{
-    text-align: start;
-}
 
 }
 
