@@ -31,7 +31,7 @@ function likedMovie(item, newWatchlist) {
     guideCounter++
     let newFilm = $.createElement("div")
     let newFilmImg = $.createElement("img")
-    newFilmImg.setAttribute("src", "/images/extraction.jpg")
+    newFilmImg.setAttribute("src", item.previousElementSibling.previousElementSibling.getAttribute("src"))
     newFilmImg.style.border = "2px solid var(--second-color)"
     let newFilmName = $.createElement("p")
     newFilmName.style.color = "var(--second-color)"
@@ -78,8 +78,13 @@ function firstClick(item, newWatchlist) {
     item.firstChild.classList.remove("far")
     item.firstChild.classList.add("fa")
     // flag = 0
-    item.style.pointerEvents = "none"
-    item.style.cursor = "none"
+    item.style.transform = "scale(1.5)"
+
+    setInterval(function () {
+        item.style.transform = "scale(1)"
+        item.firstChild.classList.remove("fa")
+        item.firstChild.classList.add("far")
+    }, 400);
     likedMovie(item, newWatchlist)
 }
 // function secondClick(item) {

@@ -1163,6 +1163,7 @@ footer .source a {
 .watchlist-box div a {
     color: var(--first-color);
     font-size: 18px;
+    transition: tranform .2s ease-in-out;
 }
 
 .watchlist-box div a:hover {
