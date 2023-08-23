@@ -10,12 +10,15 @@ let nameInput = $.querySelector("#name-input")
 let titleInput = $.querySelector("#title-input")
 let age = $.querySelector("#age")
 let searchInput = $.querySelector("#search-input")
+let shelfArrow = $.querySelector(".shelf-arrow")
+
 
 window.addEventListener("DOMContentLoaded", function () {
     $.documentElement.style.setProperty("--second-color", localStorage.getItem("color"))
     heartLike.forEach(function (item) {
         item.style.display = "none"
     })
+    watchlistBoxes.parentElement.style.display = "none"
 })
 
 
@@ -72,21 +75,29 @@ function watchlistMaker() {
 
     })
     let newWatchlist = $.createElement("div")
-    newWatchlist.className = "watchlist-box"
+    newWatchlist.classList.add("watchlist-box")
+    newWatchlist.style.backgroundColor = "var(--boxes-color)"
     let newTitle = $.createElement("h6")
     newTitle.innerHTML = `${titleInput.value} / ${nameInput.value}(${age.value})`
     newWatchlist.append(newTitle)
     movieMaker(newWatchlist)
     watchlistBoxes.appendChild(newWatchlist)
 }
-
+let clickCounter = 0
 searchBtn.addEventListener("click", function () {
     if (searchInput.value === '') {
         searchInput.placeholder = "Search something!!"
     }
     else {
-        watchlistMaker()
+        if (clickCounter === 0) {
+            watchlistMaker()
+        }
+        else {
+            movieMaker(watchlistBoxes.lastChild)
+        }
     }
+    clickCounter++
+
 })
 createBtn.addEventListener("click", function (event) {
     event.preventDefault()
@@ -112,7 +123,21 @@ createBtn.addEventListener("click", function (event) {
         watchlistForm.style.display = "none"
     }
 })
-
+shelfArrow.addEventListener("click", function (event) {
+    event.preventDefault()
+    if (shelfArrow.id === "shelf-arrow-up") {
+        watchlistBoxes.parentElement.style.display = "block"
+        shelfArrow.firstChild.classList.remove("fa-chevron-circle-down")
+        shelfArrow.firstChild.classList.add("fa-chevron-circle-up")
+        shelfArrow.id = "shelf-arrow-down"
+    }
+    else {
+        watchlistBoxes.parentElement.style.display = "none"
+        shelfArrow.firstChild.classList.remove("fa-chevron-circle-up")
+        shelfArrow.firstChild.classList.add("fa-chevron-circle-down")
+        shelfArrow.id = "shelf-arrow-up"
+    }
+})
 
 /////brightness
 let rangeItem = $.getElementById("range")
