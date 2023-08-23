@@ -1225,9 +1225,16 @@ footer .source a {
 .shelf-btn a:hover {
     color: var(--second-color);
 }
-.watchList-footer{
+
+.watchList-footer {
     margin-top: 15rem;
+
 }
+
+.film-remove:hover {
+    color: var(--boxes-color);
+}
+
 
 @media (max-width: 1400px) {
     .movie-info-box {
