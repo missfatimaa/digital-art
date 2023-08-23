@@ -33,15 +33,23 @@ function likedMovie(item, newWatchlist) {
     newFilm.append(newFilmImg, newFilmName)
     newWatchlist.appendChild(newFilm)
 }
-
+let guideCounter = 0
 function movieMaker(newWatchlist) {
+    if (guideCounter === 0) {
+        $.querySelector("#guide").remove()
+    }
+    guideCounter++
     let newFilm = $.createElement("div")
     let newFilmImg = $.createElement("img")
-    // newFilmImg.setAttribute("src", "/images/extraction.jpg")
+    newFilmImg.style.border = "2px solid var(--second-color)"
+    newFilmImg.setAttribute("src", "/images/extraction.jpg")
     let newFilmName = $.createElement("p")
+    newFilmName.style.color = "var(--second-color)"
     newFilmName.innerHTML = searchInput.value
     newFilm.append(newFilmImg, newFilmName)
     newWatchlist.appendChild(newFilm)
+    searchInput.value = " "
+
 }
 
 function firstClick(item, newWatchlist) {
@@ -76,28 +84,35 @@ function watchlistMaker() {
     })
     let newWatchlist = $.createElement("div")
     newWatchlist.classList.add("watchlist-box")
-    newWatchlist.style.backgroundColor = "var(--boxes-color)"
+    newWatchlist.style.backgroundColor = "var(--first-color)"
     let newTitle = $.createElement("h6")
+    newTitle.style.color = "var(--second-color)"
     newTitle.innerHTML = `${titleInput.value} / ${nameInput.value}(${age.value})`
     newWatchlist.append(newTitle)
-    movieMaker(newWatchlist)
-    watchlistBoxes.appendChild(newWatchlist)
+    // movieMaker(newWatchlist)
+    let watchlistGuide = $.createElement("p")
+    watchlistGuide.style.color = "var(--second-color)"
+    watchlistGuide.innerHTML = "select a movie in Searchbar :)"
+    watchlistGuide.setAttribute("id", "guide")
+    newWatchlist.append(watchlistGuide)
+    watchlistBoxes.prepend(newWatchlist)
 }
-let clickCounter = 0
+// let clickCounter = 0
 searchBtn.addEventListener("click", function () {
     if (searchInput.value === '') {
         searchInput.placeholder = "Search something!!"
     }
     else {
-        if (clickCounter === 0) {
-            watchlistMaker()
-        }
-        else {
-            movieMaker(watchlistBoxes.lastChild)
-        }
+        // if (clickCounter === 0) {
+        //     // watchlistMaker()
+        //     movieMaker
+        // }
+        // else {
+        //     movieMaker(watchlistBoxes.firstChild)
+        // }
+        movieMaker(watchlistBoxes.firstChild)
     }
-    clickCounter++
-
+    // clickCounter++
 })
 createBtn.addEventListener("click", function (event) {
     event.preventDefault()
@@ -121,6 +136,7 @@ createBtn.addEventListener("click", function (event) {
         alert(`Dear ${nameInput.value},\rPlease Create Your Own WatchList🎬`)
         searchBox.style.display = "flex"
         watchlistForm.style.display = "none"
+        watchlistMaker()
     }
 })
 shelfArrow.addEventListener("click", function (event) {
