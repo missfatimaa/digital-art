@@ -27,7 +27,9 @@ function likedMovie(item, newWatchlist) {
     let newFilm = $.createElement("div")
     let newFilmImg = $.createElement("img")
     newFilmImg.setAttribute("src", "/images/extraction.jpg")
+    newFilmImg.style.border = "2px solid var(--second-color)"
     let newFilmName = $.createElement("p")
+    newFilmName.style.color = "var(--second-color)"
     let sibling = item.previousElementSibling
     newFilmName.innerHTML = sibling.innerHTML
     newFilm.append(newFilmImg, newFilmName)
