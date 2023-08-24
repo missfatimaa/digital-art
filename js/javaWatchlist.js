@@ -40,12 +40,14 @@ function likedMovie(item, newWatchlist) {
     let filmRemoveIcon = $.createElement("a")
     filmRemoveIcon.classList.add("film-remove")
     filmRemoveIcon.setAttribute("href", "#")
-    filmRemoveIcon.innerHTML = '<i class="fa fa-trash"></i>'
+    filmRemoveIcon.innerHTML = '<i class="fas fa-trash-alt"></i>'
     filmRemoveIcon.style.color = "var(--second-color)"
     newFilm.style.justifyContent = "space-between"
     newFilm.append(newFilmImg, newFilmName, filmRemoveIcon)
-    filmRemoveIcon.addEventListener("click", function () {
+    filmRemoveIcon.addEventListener("click", function (event) {
+        event.preventDefault()
         newFilm.remove()
+        newFilm.style.justifyContent = "space-between"
     })
     newWatchlist.appendChild(newFilm)
 }
@@ -64,14 +66,17 @@ function movieMaker(newWatchlist) {
     let filmRemoveIcon = $.createElement("a")
     filmRemoveIcon.classList.add("film-remove")
     filmRemoveIcon.setAttribute("href", "#")
-    filmRemoveIcon.innerHTML = '<i class="fa fa-trash"></i>'
+    filmRemoveIcon.innerHTML = '<i class="fas fa-trash-alt"></i>'
     filmRemoveIcon.style.color = "var(--second-color)"
     newFilm.style.justifyContent = "space-between"
     newFilm.append(newFilmImg, newFilmName, filmRemoveIcon)
     filmRemoveIcon.addEventListener("click", function () {
         newFilm.remove()
+        newFilm.style.justifyContent = "space-between"
+
     })
     newWatchlist.appendChild(newFilm)
+    searchInput.value = ''
 }
 
 function firstClick(item, newWatchlist) {
@@ -93,6 +98,7 @@ function firstClick(item, newWatchlist) {
 //     // flag = 1
 // }
 function watchlistMaker() {
+    guideCounter = 0
     $.querySelectorAll(".watchlist-box div").forEach(function (div) {
         div.style.justifyContent = "space-between"
     })
@@ -117,8 +123,25 @@ function watchlistMaker() {
     newWatchlist.style.backgroundColor = "var(--first-color)"
     let newTitle = $.createElement("h6")
     newTitle.style.color = "var(--second-color)"
+    let filmRemoveIcon = $.createElement("a")
+    filmRemoveIcon.classList.add("film-remove")
+    filmRemoveIcon.setAttribute("href", "#")
+    filmRemoveIcon.innerHTML = '<i class="fas fa-trash"></i>'
+    filmRemoveIcon.style.color = "var(--boxes-color)"
     newTitle.innerHTML = `${titleInput.value} / ${nameInput.value}(${age.value})`
+    newTitle.style.display = "flex"
+    newTitle.style.justifyContent = "space-between"
+    newTitle.append(filmRemoveIcon)
     newWatchlist.append(newTitle)
+    filmRemoveIcon.addEventListener("click", function (event) {
+        event.preventDefault()
+        let confirmAnswer = confirm("Really Wanna Miss This WatchList?? ⚠")
+        if (confirmAnswer === true) {
+            newWatchlist.remove()
+        } else {
+            void (0)
+        }
+    })
     // movieMaker(newWatchlist)
     let watchlistGuide = $.createElement("p")
     watchlistGuide.style.color = "var(--second-color)"
@@ -126,6 +149,8 @@ function watchlistMaker() {
     watchlistGuide.setAttribute("id", "guide")
     newWatchlist.append(watchlistGuide)
     watchlistBoxes.prepend(newWatchlist)
+    nameInput.value = ""
+    titleInput.value = ""
 }
 // let clickCounter = 0
 searchBtn.addEventListener("click", function () {
@@ -165,7 +190,6 @@ createBtn.addEventListener("click", function (event) {
     else {
         alert(`Dear ${nameInput.value},\rNow Create Your Own WatchList🎬`)
         searchBox.style.display = "flex"
-        watchlistForm.style.display = "none"
         watchlistMaker()
     }
 })
