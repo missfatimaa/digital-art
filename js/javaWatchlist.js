@@ -20,11 +20,22 @@ window.addEventListener("DOMContentLoaded", function () {
     })
     // watchlistBoxes.parentElement.style.display = "none"
 })
+///////////////API
 
+
+// function showUser(response) {
+//     console.log(response);
+//     // alert(`The user name is ${response.data.name}`);
+// }
+
+// let url = "https://streaming-availability.p.rapidapi.com/search/title";
+// axios.get(url).then(showUser);
+/////////////////
 
 let flag = 0
 let guideCounter = 0
 function likedMovie(item, newWatchlist) {
+    console.log("kkk");
     if (guideCounter === 0) {
         $.querySelector("#guide").remove()
     }
@@ -79,25 +90,8 @@ function movieMaker(newWatchlist) {
     searchInput.value = ''
 }
 
-function firstClick(item, newWatchlist) {
-    item.firstChild.classList.remove("far")
-    item.firstChild.classList.add("fa")
-    // flag = 0
-    item.style.transform = "scale(1.5)"
-
-    setInterval(function () {
-        item.style.transform = "scale(1)"
-        item.firstChild.classList.remove("fa")
-        item.firstChild.classList.add("far")
-    }, 400);
-    likedMovie(item, newWatchlist)
-}
-// function secondClick(item) {
-//     item.style.pointerEvents = "none"
-//     item.style.cursor = "none"
-//     // flag = 1
-// }
 function watchlistMaker() {
+    console.log("sss");
     guideCounter = 0
     $.querySelectorAll(".watchlist-box div").forEach(function (div) {
         div.style.justifyContent = "space-between"
@@ -107,16 +101,20 @@ function watchlistMaker() {
         item.addEventListener("click", function (event) {
             console.log(flag);
             event.preventDefault()
-            firstClick(item, newWatchlist)
-            // if (flag === 1) {
-            //     secondClick(item)
-            //     flag = 0
-            // } else if (flag === 0) {
-            //     firstClick(item, newWatchlist)
-            //     flag = 1
-            // }
-        })
+            item.firstChild.classList.remove("far")
+            item.firstChild.classList.add("fa")
+            flag = 0
+            item.style.transform = "scale(1.5)"
 
+            setInterval(function () {
+                item.style.transform = "scale(1)"
+                item.firstChild.classList.remove("fa")
+                item.firstChild.classList.add("far")
+            }, 400);
+            likedMovie(item, watchlistBoxes.firstChild)            
+            // setTimeout(watchlistMaker(),200)
+        })
+        // return
     })
     let newWatchlist = $.createElement("div")
     newWatchlist.classList.add("watchlist-box")
