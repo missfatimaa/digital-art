@@ -35,6 +35,9 @@ window.addEventListener("DOMContentLoaded", function () {
 let flag = 0
 let guideCounter = 0
 function likedMovie(item, newWatchlist) {
+    if (flag > 1) {
+        void (0)
+    }
     console.log("kkk");
     if (guideCounter === 0) {
         $.querySelector("#guide").remove()
@@ -92,6 +95,7 @@ function movieMaker(newWatchlist) {
 
 function watchlistMaker() {
     console.log("sss");
+    console.log(flag);
     guideCounter = 0
     $.querySelectorAll(".watchlist-box div").forEach(function (div) {
         div.style.justifyContent = "space-between"
@@ -103,7 +107,6 @@ function watchlistMaker() {
             event.preventDefault()
             item.firstChild.classList.remove("far")
             item.firstChild.classList.add("fa")
-            flag = 0
             item.style.transform = "scale(1.5)"
 
             setInterval(function () {
@@ -111,10 +114,9 @@ function watchlistMaker() {
                 item.firstChild.classList.remove("fa")
                 item.firstChild.classList.add("far")
             }, 400);
-            likedMovie(item, watchlistBoxes.firstChild)            
-            // setTimeout(watchlistMaker(),200)
+            likedMovie(item, watchlistBoxes.firstChild)
+            flag = 0
         })
-        // return
     })
     let newWatchlist = $.createElement("div")
     newWatchlist.classList.add("watchlist-box")
@@ -149,6 +151,7 @@ function watchlistMaker() {
     watchlistBoxes.prepend(newWatchlist)
     nameInput.value = ""
     titleInput.value = ""
+    age.value = ''
 }
 // let clickCounter = 0
 searchBtn.addEventListener("click", function () {
@@ -189,6 +192,7 @@ createBtn.addEventListener("click", function (event) {
         alert(`Dear ${nameInput.value},\rNow Create Your Own WatchList🎬`)
         searchBox.style.display = "flex"
         watchlistMaker()
+        flag++
     }
 })
 // shelfArrow.addEventListener("click", function (event) {
